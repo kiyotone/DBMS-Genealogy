@@ -74,7 +74,7 @@ Make sure you have the following installed:
    After all dependencies are installed and the database is set up, run the FastAPI application:
 
    ```bash
-   uvicorn main:app --reload
+   uvicorn app.main:app --reload
    ```
 
    The API will be accessible at `http://127.0.0.1:8000`.
