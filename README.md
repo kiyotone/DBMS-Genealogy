@@ -57,14 +57,14 @@ Make sure you have the following installed:
    - Create a database for the project:
 
      ```bash
-     psql -U postgres
-     CREATE DATABASE genealogy_db;
-     ```
-
+     psql -U [username]
+     CREATE DATABASE [database];
+     GRANT ALL PRIVILEGES ON DATABASE [database] TO [username]; 
+     ``` 
    - Set up the database credentials in your `.env` or configuration file (you can also use the following as an example):
 
      ```ini
-     DATABASE_URL=postgresql://username:password@localhost/genealogy_db
+     DATABASE_URL=postgresql://[username]:[password]@localhost:5432/[database]
      ```
 
    Replace `username` and `password` with your PostgreSQL credentials.
@@ -74,7 +74,7 @@ Make sure you have the following installed:
    After all dependencies are installed and the database is set up, run the FastAPI application:
 
    ```bash
-   uvicorn main:app --reload
+   uvicorn app.main:app --reload
    ```
 
    The API will be accessible at `http://127.0.0.1:8000`.
