@@ -32,8 +32,8 @@ Make sure you have the following installed:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/genealogy-database-api.git
-   cd genealogy-database-api
+   git clone https://github.com/kiyotone/DBMS-backend.git
+   cd DBMS-backend
    ```
 
 2. **Create a virtual environment** (optional but recommended):
@@ -69,17 +69,7 @@ Make sure you have the following installed:
 
    Replace `username` and `password` with your PostgreSQL credentials.
 
-5. **Migrate the database**:
-
-   - Ensure your database is set up with the correct tables. If you have a migration setup (e.g., using Alembic), run:
-
-     ```bash
-     alembic upgrade head
-     ```
-
-   Or, if you're using raw SQL, make sure the necessary tables are created.
-
-6. **Run the application**:
+5. **Run the application**:
 
    After all dependencies are installed and the database is set up, run the FastAPI application:
 
@@ -89,7 +79,7 @@ Make sure you have the following installed:
 
    The API will be accessible at `http://127.0.0.1:8000`.
 
-7. **Testing the API**:
+6. **Testing the API**:
 
    - Visit `http://127.0.0.1:8000/docs` to see the auto-generated documentation provided by FastAPI. From there, you can test the endpoints and interact with the API.
 

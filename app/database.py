@@ -1,9 +1,15 @@
 import psycopg2
 from psycopg2 import sql
 from contextlib import contextmanager
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
 
 # PostgreSQL connection URL
-DATABASE_URL = "postgresql://kirtan:kirtan@localhost:5432/genealogy"
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 
 # Connection context manager
 @contextmanager
