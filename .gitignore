@@ -1,0 +1,9 @@
+# Virtual Env
+.venv/
+# Logs
+*.log
+# Ignore .env file containing credentials, API keys, tokens, passwords, etc.
+.env
+# Ignore python cache
+__pycache__/
+
