@@ -1,17 +1,33 @@
 from ..database import get_db_connection
 
-# Create a new person
-def create_person(first_name: str, last_name: str, gender: str, date_of_birth: str, date_of_death: str = None,
-                  maternal_family_id: int = None, paternal_family_id: int = None):
-    query = """
-    INSERT INTO Person (FirstName, LastName, Gender, DateOfBirth, DateOfDeath, MaternalFamilyID, PaternalFamilyID)
-    VALUES (%s, %s, %s, %s, %s, %s, %s);
-    """
-    with get_db_connection() as conn:
-        with conn.cursor() as cursor:
-            cursor.execute(query, (first_name, last_name, gender, date_of_birth, date_of_death, 
-                                   maternal_family_id, paternal_family_id))
-            conn.commit()
+def create_person(personid: int = None, firstname: str = None, lastname: str = None, gender: str = None, 
+                  dateofbirth: str = None, dateofdeath: str = None, maternalfamilyid: int = None, 
+                  paternalfamilyid: int = None):
+    
+    print(f"Creating person with ID: {personid}")
+    
+    if personid is not None:
+        # Use the given ID in the insert query
+        query = """
+        INSERT INTO Person (PersonID, FirstName, LastName, Gender, DateOfBirth, DateOfDeath, MaternalFamilyID, PaternalFamilyID)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+        """
+        with get_db_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(query, (personid, firstname, lastname, gender, dateofbirth, dateofdeath, 
+                                       maternalfamilyid, paternalfamilyid))
+                conn.commit()
+    else:
+        # Let the database generate the ID automatically
+        query = """
+        INSERT INTO Person (FirstName, LastName, Gender, DateOfBirth, DateOfDeath, MaternalFamilyID, PaternalFamilyID)
+        VALUES (%s, %s, %s, %s, %s, %s, %s);
+        """
+        with get_db_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(query, (firstname, lastname, gender, dateofbirth, dateofdeath, 
+                                       maternalfamilyid, paternalfamilyid))
+                conn.commit()
 
 # Get a person by ID
 def get_person_by_id(person_id: int):

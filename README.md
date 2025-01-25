@@ -83,8 +83,20 @@ Make sure you have the following installed:
 
    - Visit `http://127.0.0.1:8000/docs` to see the auto-generated documentation provided by FastAPI. From there, you can test the endpoints and interact with the API.
 
-7. **Loading the Data**:
+7. **Saving the Data**:
+
+   Go to the root directory and then load the `export_data.py`:
 
    ```bash
-   pg_restore -U [username] -d [database_name] /path/to/genealogy_backup.dump
-    ```
+   python export_data.py
+   ```
+
+8. **Loading the Data**:
+
+   Go to the root directory and then load the `seeder.py`:
+
+   ```bash
+   python seeder.py
+   ```
+
+   **NOTE**: This will REMOVE all previous data from your database. To avoid this, you can first save your data by running the `export_data.py` script before running `seeder.py`.
