@@ -22,7 +22,7 @@ def get_db_connection():
 
 # Function to create tables
 def create_tables():
-    table_creation_queries = """
+    table_creation_queries = """cd 
     CREATE TABLE IF NOT EXISTS Family (
         FamilyID SERIAL PRIMARY KEY,
         FamilyName VARCHAR(255),
