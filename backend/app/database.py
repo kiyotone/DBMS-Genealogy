@@ -22,7 +22,7 @@ def get_db_connection():
 
 # Function to create tables
 def create_tables():
-    table_creation_queries = """cd 
+    table_creation_queries = """
     CREATE TABLE IF NOT EXISTS Family (
         FamilyID SERIAL PRIMARY KEY,
         FamilyName VARCHAR(255),
@@ -57,6 +57,16 @@ def create_tables():
         Person2ID INT REFERENCES Person(PersonID),
         RelationshipType VARCHAR(255),
         Status VARCHAR(255)
+    );
+
+    CREATE TABLE IF NOT EXISTS Users (
+        UserID SERIAL PRIMARY KEY,
+        FirstName VARCHAR(255),
+        LastName VARCHAR(255),
+        Username VARCHAR(255),
+        Password VARCHAR(255),
+        Email VARCHAR(255),
+        Role VARCHAR(50)
     );
     """
     with get_db_connection() as conn:
