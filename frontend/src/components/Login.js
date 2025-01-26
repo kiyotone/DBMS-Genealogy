@@ -1,61 +1,93 @@
 import React from 'react';
-import styles from "./Login.module.css";
+import { useForm } from 'react-hook-form';
+import styles from './Login.module.css';
+import { login } from '../api/auth';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    // Remove Key remeber from data
+    const response = await login(data.username, data.password);
+    
+      navigate('/');
+    
+}
+
   return (
-    <div className={styles.logincontainer}>
+    <div className={styles.loginpagecontainer}>
       <div className={styles.logincard}>
         <div className={styles.logocontainer}>
-          <img src="models/images/GMSlogo.png" alt="GMS Logo" className={styles.logo} />
-          <h1 className={styles.apptitle}>GMS</h1>
+          <img src="models/images/gmslogo.png" alt="gms logo" className={styles.logo} />
+          <h1 className={styles.apptitle}>gms</h1>
         </div>
 
         <div className={styles.cardcontent}>
-          <h2 className={styles.logintitle}>Login</h2>
-          <form className={styles.loginform}>
+          <h2 className={styles.logintitle}>login</h2>
+          <form className={styles.loginform} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.inputgroup}>
-              <span className="icon user-icon"></span>
-              <img src="/models/images/user-solid.svg" alt="Username" className={styles.icon} />
+              <img src="/models/images/user-solid.svg" alt="username" className={styles.icon} />
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="username"
+                {...register('username', { required: 'username is required' })}
                 className={styles.inputfield}
               />
+              {errors.username && (
+                <p className={styles.error}>{errors.username.message}</p>
+              )}
             </div>
             <div className={styles.inputgroup}>
-              <span className="icon mail-icon"></span>
-              <img src="/models/images/lock-solid.svg" alt="Password" className={styles.icon} />
+              <img src="/models/images/lock-solid.svg" alt="password" className={styles.icon} />
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="password"
+                {...register('password', { required: 'password is required' })}
                 className={styles.inputfield}
               />
+              {errors.password && (
+                <p className={styles.error}>{errors.password.message}</p>
+              )}
             </div>
             <div className={styles.formoptions}>
               <div className={styles.checkboxgroup}>
-                <input type="checkbox" id="remember" />
+                <input
+                  type="checkbox"
+                  id="remember"
+                  {...register('remember')}
+                />
                 <label htmlFor="remember" className={styles.checkboxlabel}>
-                  Remember Me
+                  remember me
                 </label>
               </div>
               <a href="/forgotpassword" className={styles.forgotpasswordlink}>
-                Forgot password?
+                forgot password?
               </a>
             </div>
-            <button className={styles.loginbutton}>Login</button>
+            <button type="submit" className={styles.loginbutton}>
+              login
+            </button>
           </form>
-          <div className={styles.register - prompt}>
+          <div className={styles.registerprompt}>
             <p>
-              Don’t have an account?{' '}
+              don’t have an account?{' '}
               <a href="/signup" className={styles.registerlink}>
-                Register
+                register
               </a>
             </p>
           </div>
         </div>
       </div>
     </div>
-
   );
-}
+};
+
 export default Login;

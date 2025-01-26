@@ -8,6 +8,7 @@ export const api = axios.create({
         accept: 'application/json',
         'Content-Type': 'multipart/form-data',
     },
+    withCredentials: true,
 })
 
 export const authenticated = (apiInstance) => {

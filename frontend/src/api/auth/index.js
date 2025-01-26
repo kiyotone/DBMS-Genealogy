@@ -1,20 +1,30 @@
+import { api } from "../config";
 
-import axios from '../axios';
-
-const login = async (email, password) => {
+export const login = async (username, password) => {
+    const data = JSON.stringify({
+      email: username,
+      password: password,
+    });
+    console.log(data);
     try {
-        const response = await axios.post('/auth/login', { email, password });
-        return response.data;
+      const response = await api.post("auth/login", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      localStorage.setItem("token", response.data.access_token);
+      return response;
     } catch (error) {
-        throw error;
+      return error.response;
     }
-    }
+  };
+  
 
-const register = async (email, password, first_name, last_name) => {
+export const signup = async (data) => {
     try {
-        const response = await axios.post('/auth/register', { email, password, first_name, last_name });
-        return response.data;
+        const response = await api.post("auth/signup/", data);
+        return response;
     } catch (error) {
-        throw error;
+        return error.response;
     }
-}
+    }

@@ -1,11 +1,12 @@
 .loginpagecontainer {
   display: flex;
   height: 100vh;
-  align-items: center;
-  justify-content: center;
+  width: 100vw;
+  align-items: center; /* Align items along the cross axis (vertically in this case) */
+  justify-content: center; /* Align items along the main axis (horizontally in this case) */
   background-color: #fdf2f8;  
 }
- 
+
 .logincard {
   width: 24rem;
   padding: 1.5rem;
