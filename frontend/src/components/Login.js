@@ -27,7 +27,7 @@ const Login = () => {
       <div className={styles.logincard}>
         <div className={styles.logocontainer}>
           <img src="models/images/gmslogo.png" alt="gms logo" className={styles.logo} />
-          <h1 className={styles.apptitle}>gms</h1>
+          <h1 className={styles.apptitle}>GMS</h1>
         </div>
 
         <div className={styles.cardcontent}>
@@ -65,22 +65,22 @@ const Login = () => {
                   {...register('remember')}
                 />
                 <label htmlFor="remember" className={styles.checkboxlabel}>
-                  remember me
+                  Remember Me
                 </label>
               </div>
               <a href="/forgotpassword" className={styles.forgotpasswordlink}>
-                forgot password?
+                Forgot Password?
               </a>
             </div>
             <button type="submit" className={styles.loginbutton}>
-              login
+              Login
             </button>
           </form>
           <div className={styles.registerprompt}>
             <p>
-              don’t have an account?{' '}
+              Don’t have an account?{' '}
               <a href="/signup" className={styles.registerlink}>
-                register
+                Register
               </a>
             </p>
           </div>
