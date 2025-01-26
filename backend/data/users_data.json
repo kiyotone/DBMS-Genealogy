@@ -1,0 +1,38 @@
+[
+    {
+        "userid": 1,
+        "firstname": "John",
+        "lastname": "Doe",
+        "username": "john_doe",
+        "password": "$2b$12$BCxu.5E8XJTwLt4.d8ogd.KEtZXHcmsRSwY3fYn7.jQQUnNuVKFEq",
+        "email": "john.doe@example.com",
+        "role": "User"
+    },
+    {
+        "userid": 2,
+        "firstname": "Alice",
+        "lastname": "Johnson",
+        "username": "alice_admin",
+        "password": "$2b$12$SDC5wrqyV4OdeoDSKKJQ1uDQodLYBfPWsX9qrgPAx7DRXUz/YsjRa",
+        "email": "alice@example.com",
+        "role": "Admin"
+    },
+    {
+        "userid": 3,
+        "firstname": "Charlie",
+        "lastname": "Brown",
+        "username": "charlie_b",
+        "password": "$2b$12$x.0ErbOLttCGvG3gZ6Pv0.Tn.cCwOP7N8/1thitFz.Er0vQjaILlS",
+        "email": "charlie.brown@example.com",
+        "role": "Moderator"
+    },
+    {
+        "userid": 4,
+        "firstname": "Ethan",
+        "lastname": "Hunt",
+        "username": "ethan_support",
+        "password": "$2b$12$akHG6WZBVzgYroYfPsD5OujmkfSHOSiqpCT613b9r5RNYL.y0ejrC",
+        "email": "ethan.hunt@example.com",
+        "role": "Support"
+    }
+]

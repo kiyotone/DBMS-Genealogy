@@ -18,12 +18,3 @@ const register = async (email, password, first_name, last_name) => {
         throw error;
     }
 }
-
-const logout = async () => {
-    try {
-        const response = await axios.post('/auth/logout');
-        return response.data;
-    } catch (error) {
-        throw error;
-    }
-}
