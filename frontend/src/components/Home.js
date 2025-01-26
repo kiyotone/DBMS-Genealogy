@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import { testLoad } from "./testload";
+
 
 const Home = () => {
   const [familyData, setFamilyData] = useState(null);  // State to hold the fetched data
@@ -26,11 +28,13 @@ const Home = () => {
         <img src="models/images/GMSlogo.png" alt="GMS Logo" className={styles.logo} />
         <p><b>Discover your Family Background</b></p>
         <p>Login and find the details about your ancestors and their lives in records.</p>
+        <Link to="/login"> 
         <button className={styles.loginButton}>Login</button>
+        </Link>
       </div>
 
       <div className={styles.item}>
-        <img src="models/images/familyphoto.jpg" alt="Family photo" className={styles.image} />
+        <img src="models/images/familyphoto.jpg" alt="Family" className={styles.image} />
         <p>Find out if you are related.</p>
       </div>
     </div>
