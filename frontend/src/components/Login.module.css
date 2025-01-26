@@ -1,4 +1,3 @@
- 
 .loginpagecontainer {
   display: flex;
   height: 100vh;
@@ -17,7 +16,6 @@
   text-align: center;
 }
 
- 
 .logocontainer {
   display: flex;
   flex-direction: column;

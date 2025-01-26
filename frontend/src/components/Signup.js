@@ -13,8 +13,7 @@ const Signup = () => {
         <div className={styles.cardcontent}>
           <h2 className={styles.signuptitle}>Sign Up</h2>
           <form className={styles.signupform}>
-
-          <div className={styles.inputgroup}>
+            <div className={styles.inputgroup}>
               <input
                 type="text"
                 placeholder="FirstName"
@@ -38,7 +37,7 @@ const Signup = () => {
               />
             </div>
             <div className={styles.inputgroup}>
-              <img src="/models/images/email.jpeg" alt="Email" className={styles.icon} />
+              <img src="/models/images/email.svg" alt="Email" className={styles.icon} />
               <input
                 type="email"
                 placeholder="Email"
