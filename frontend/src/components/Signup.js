@@ -21,17 +21,17 @@ const Signup = () => {
       <div className={styles.signupcard}>
         <div className={styles.logocontainer}>
           <img src="models/images/gmslogo.png" alt="gms logo" className={styles.logo} />
-          <h1 className={styles.apptitle}>gms</h1>
+          <h1 className={styles.apptitle}>GMS</h1>
         </div>
 
         <div className={styles.cardcontent}>
-          <h2 className={styles.signuptitle}>sign up</h2>
+          <h2 className={styles.signuptitle}>Sign Up</h2>
           <form className={styles.signupform} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.inputgroup}>
               <input
                 type="text"
-                placeholder="firstname"
-                {...register('firstname', { required: 'firstname is required' })}
+                placeholder="First Name"
+                {...register('firstname', { required: 'First Name is required' })}
                 className={styles.inputfield}
               />
               {errors.firstname && (
@@ -41,8 +41,8 @@ const Signup = () => {
             <div className={styles.inputgroup}>
               <input
                 type="text"
-                placeholder="lastname"
-                {...register('lastname', { required: 'lastname is required' })}
+                placeholder="Last Name"
+                {...register('lastname', { required: 'Last Name is required' })}
                 className={styles.inputfield}
               />
               {errors.lastname && (
@@ -53,8 +53,8 @@ const Signup = () => {
               <img src="/models/images/user-solid.svg" alt="username" className={styles.icon} />
               <input
                 type="text"
-                placeholder="username"
-                {...register('username', { required: 'username is required' })}
+                placeholder="Username"
+                {...register('username', { required: 'Username is required' })}
                 className={styles.inputfield}
               />
               {errors.username && (
@@ -83,12 +83,12 @@ const Signup = () => {
               <img src="/models/images/lock-solid.svg" alt="password" className={styles.icon} />
               <input
                 type="password"
-                placeholder="password"
+                placeholder="Password"
                 {...register('password', {
-                  required: 'password is required',
+                  required: 'Password is required',
                   minLength: {
                     value: 6,
-                    message: 'password must be at least 6 characters',
+                    message: 'Password must be at least 6 characters',
                   },
                 })}
                 className={styles.inputfield}
@@ -101,11 +101,11 @@ const Signup = () => {
               <img src="/models/images/lock-solid.svg" alt="confirm password" className={styles.icon} />
               <input
                 type="password"
-                placeholder="confirm password"
+                placeholder="Confirm Password"
                 {...register('confirmPassword', {
-                  required: 'confirm password is required',
+                  required: 'Confirm Password is required',
                   validate: (value) =>
-                    value === password || 'passwords do not match',
+                    value === password || 'Passwords do not match',
                 })}
                 className={styles.inputfield}
               />
@@ -114,14 +114,14 @@ const Signup = () => {
               )}
             </div>
             <button type="submit" className={styles.signupbutton}>
-              sign up
+              Sign Up
             </button>
           </form>
           <div className={styles.loginprompt}>
             <p>
-              already have an account?{' '}
+              Already have an account?{' '}
               <a href="/login" className={styles.loginlink}>
-                login
+                Login
               </a>
             </p>
           </div>
