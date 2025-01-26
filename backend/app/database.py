@@ -58,6 +58,16 @@ def create_tables():
         RelationshipType VARCHAR(255),
         Status VARCHAR(255)
     );
+
+    CREATE TABLE IF NOT EXISTS Users (
+        UserID SERIAL PRIMARY KEY,
+        FirstName VARCHAR(255),
+        LastName VARCHAR(255),
+        Username VARCHAR(255),
+        Password VARCHAR(255),
+        Email VARCHAR(255),
+        Role VARCHAR(50)
+    );
     """
     with get_db_connection() as conn:
         with conn.cursor() as cursor:

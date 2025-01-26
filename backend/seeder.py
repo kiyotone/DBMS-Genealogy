@@ -52,6 +52,14 @@ def seed_data_from_json(table_name, json_file):
                     """
                     values = (row.get("person1id"), row.get("person2id"),
                               row.get("relationshiptype"), row.get("status"))
+                
+                elif table_name == "Users":
+                    query = """
+                    INSERT INTO Users (FirstName, LastName, Username, Password, Email, Role)
+                    VALUES (%s, %s, %s, %s);
+                    """
+                    values = (row.get("username"), row.get("password"), row.get("email"), row.get("role"))
+                
                 else:
                     print(f"Unknown table: {table_name}")
                     return
@@ -68,7 +76,8 @@ def seed_all_data():
         "Family": "data/family_data.json",
         "Person": "data/person_data.json",
         "Event": "data/event_data.json",
-        "Relationship": "data/relationship_data.json"
+        "Relationship": "data/relationship_data.json",
+        "Users": "data/users_data.json",
     }
 
     # Loop through each table and seed data

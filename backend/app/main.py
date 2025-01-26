@@ -4,6 +4,7 @@ from .family.routes import router as family_router
 from .person.routes import router as person_router
 from .events.routes import router as event_router
 from .relationships.routes import router as relationship_router
+from .users.routes import router as user_router
 
 app = FastAPI()
 
@@ -17,4 +18,6 @@ app.include_router(person_router, prefix="/person", tags=["Person"])
 app.include_router(event_router, prefix="/event", tags=["Event"])
 # Include relationship-related routes
 app.include_router(relationship_router, prefix="/relationship", tags=["Relationship"])
+#Include user-related routes
+app.include_router(user_router, prefix="/auth", tags=["User"])
 

@@ -28,7 +28,8 @@ if __name__ == "__main__":
         "Person": "data/person_data.json",
         "Family": "data/family_data.json",
         "Event": "data/event_data.json",
-        "Relationship": "data/relationship_data.json"
+        "Relationship": "data/relationship_data.json",
+        "Users": "data/users_data.json",
     }
 
 
