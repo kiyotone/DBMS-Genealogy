@@ -8,3 +8,20 @@ class UserBase(BaseModel):
     username: str
     email: str
     role: str
+
+class UserLogin(BaseModel):
+    # Accept email or username
+    email: str
+    password: str
+    
+class UserOut(UserBase):
+    id: int
+    created_at: date
+    updated_at: date
+    
+class UserCreate(UserBase):
+    password: str
+
+class UserUpdate(UserBase):
+    password: Optional[str]
+

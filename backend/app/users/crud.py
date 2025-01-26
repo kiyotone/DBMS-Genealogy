@@ -14,14 +14,26 @@ def check_password(password: str, hashed_password: str):
         raise ValueError("Password and hashed password must be provided.")
     return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
 
+def row_to_dict(cursor, row):
+    '''Convert a database row to a dictionary.'''
+    if row:
+        return {desc[0]: value for desc, value in zip(cursor.description, row)}
+    return None
+
+def rows_to_dicts(cursor, rows):
+    '''Convert multiple rows to a list of dictionaries.'''
+    return [{desc[0]: value for desc, value in zip(cursor.description, row)} for row in rows]
+
 def create_user(data: dict):
     query = """
     INSERT INTO Users (FirstName, LastName, Username, Password, Email, Role)
     VALUES (%s, %s, %s, %s, %s, %s)
     RETURNING UserID;
     """
-    if not all(key in data for key in ("firstname", "lastname", "username", "password", "email", "role")):
-        raise ValueError("Missing required user fields.")
+    
+    for key in ("firstname", "lastname", "username", "password", "email", "role"):
+        if key not in data:
+            raise ValueError(f"Missing required field: {key}")
     
     data["password"] = hash_password(data["password"])
     try:
@@ -30,7 +42,7 @@ def create_user(data: dict):
                 cursor.execute(query, (data["firstname"], data["lastname"], data["username"], data["password"], data["email"], data["role"]))
                 user_id = cursor.fetchone()[0]
                 conn.commit()
-        return user_id
+        return {"UserID": user_id}
     except IntegrityError:
         raise ValueError("Username or email already exists.")
     except DatabaseError as e:
@@ -47,9 +59,7 @@ def get_user_by_id(user_id: int):
             with conn.cursor() as cursor:
                 cursor.execute(query, (user_id,))
                 user = cursor.fetchone()
-                if not user:
-                    raise ValueError(f"User with ID {user_id} not found.")
-        return user
+        return row_to_dict(cursor, user)
     except DatabaseError as e:
         raise RuntimeError(f"Database error: {e}")
 
@@ -62,7 +72,7 @@ def get_all_users():
             with conn.cursor() as cursor:
                 cursor.execute(query)
                 users = cursor.fetchall()
-        return users
+        return rows_to_dicts(cursor, users)
     except DatabaseError as e:
         raise RuntimeError(f"Database error: {e}")
 
@@ -114,15 +124,13 @@ def get_user_by_username_or_email(username: str, email: str):
             with conn.cursor() as cursor:
                 cursor.execute(query, (username, email))
                 user = cursor.fetchone()
-                if not user:
-                    raise ValueError("No user found with the provided username or email.")
-        return user
+        return row_to_dict(cursor, user)
     except DatabaseError as e:
         raise RuntimeError(f"Database error: {e}")
 
-def login_user(username: str, password: str):
-    if not username or not password:
-        raise ValueError("Username and password must be provided.")
+def get_user_by_username(username: str):
+    if not username:
+        raise ValueError("Username must be provided.")
     query = """
     SELECT * FROM Users WHERE Username = %s;
     """
@@ -131,10 +139,21 @@ def login_user(username: str, password: str):
             with conn.cursor() as cursor:
                 cursor.execute(query, (username,))
                 user = cursor.fetchone()
-                if not user:
-                    raise ValueError("Invalid username or password.")
-                if not check_password(password, user["Password"]):
-                    raise ValueError("Invalid username or password.")
-        return user
+        return row_to_dict(cursor, user)
+    except DatabaseError as e:
+        raise RuntimeError(f"Database error: {e}")
+
+def get_user_by_email(email: str):
+    if not email:
+        raise ValueError("Email must be provided.")
+    query = """
+    SELECT * FROM Users WHERE Email = %s;
+    """
+    try:
+        with get_db_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(query, (email,))
+                user = cursor.fetchone()
+        return row_to_dict(cursor, user)
     except DatabaseError as e:
         raise RuntimeError(f"Database error: {e}")

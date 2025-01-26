@@ -1,41 +1,41 @@
 [
     {
-        "relationshipid": 9,
+        "relationshipid": 1,
         "person1id": 1,
         "person2id": 2,
         "relationshiptype": "Spouse",
         "status": "Married"
     },
     {
-        "relationshipid": 10,
+        "relationshipid": 2,
         "person1id": 3,
         "person2id": 4,
         "relationshiptype": "Siblings",
         "status": "Alive"
     },
     {
-        "relationshipid": 11,
+        "relationshipid": 3,
         "person1id": 5,
         "person2id": 6,
         "relationshiptype": "Parent-Child",
         "status": "Alive"
     },
     {
-        "relationshipid": 12,
+        "relationshipid": 4,
         "person1id": 1,
         "person2id": 3,
         "relationshiptype": "Cousins",
         "status": "Alive"
     },
     {
-        "relationshipid": 13,
+        "relationshipid": 5,
         "person1id": 2,
         "person2id": 6,
         "relationshiptype": "Siblings",
         "status": "Alive"
     },
     {
-        "relationshipid": 14,
+        "relationshipid": 6,
         "person1id": 3,
         "person2id": 7,
         "relationshiptype": "Cousins",
