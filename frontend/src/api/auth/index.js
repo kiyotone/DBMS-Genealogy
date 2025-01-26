@@ -21,8 +21,14 @@ export const login = async (username, password) => {
   
 
 export const signup = async (data) => {
+    data = JSON.stringify(data);
+    console.log(data);
     try {
-        const response = await api.post("auth/signup", data);
+        const response = await api.post("auth/signup", data, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
         return response;
     } catch (error) {
         return error.response;
