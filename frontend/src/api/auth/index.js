@@ -22,7 +22,7 @@ export const login = async (username, password) => {
 
 export const signup = async (data) => {
     try {
-        const response = await api.post("auth/signup/", data);
+        const response = await api.post("auth/signup", data);
         return response;
     } catch (error) {
         return error.response;

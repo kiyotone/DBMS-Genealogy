@@ -3,7 +3,7 @@ from . import crud, schemas, token
 
 router = APIRouter()
 
-@router.post("/")
+@router.post("/signup")
 def register_user(user: schemas.UserCreate):
     db_user = crud.get_user_by_email(user.email)
     if db_user:
