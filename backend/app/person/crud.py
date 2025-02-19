@@ -1,5 +1,6 @@
 from ..database import get_db_connection
 
+# Create a person (with or without personid)
 def create_person(personid: int = None, firstname: str = None, lastname: str = None, gender: str = None, 
                   dateofbirth: str = None, dateofdeath: str = None, maternalfamilyid: int = None, 
                   paternalfamilyid: int = None):
@@ -29,7 +30,7 @@ def create_person(personid: int = None, firstname: str = None, lastname: str = N
                                        maternalfamilyid, paternalfamilyid))
                 conn.commit()
 
-# Get a person by ID
+# Get a person by ID (returns a custom dictionary)
 def get_person_by_id(person_id: int):
     query = """
     SELECT * FROM Person WHERE PersonID = %s;
@@ -39,9 +40,24 @@ def get_person_by_id(person_id: int):
             cursor.execute(query, (person_id,))
             result = cursor.fetchone()
 
-    return result
+    # Custom dictionary for person
+    if result:
+        person_dict = {
+            "id": result[0],  # PersonID
+            "firstname": result[1],  # FirstName
+            "lastname": result[2],  # LastName
+            "gender": result[3],  # Gender
+            "dateofbirth": result[4],  # DateOfBirth
+            "dateofdeath": result[5],  # DateOfDeath
+            "maternalfamilyid": result[6],  # MaternalFamilyID
+            "paternalfamilyid": result[7]  # PaternalFamilyID
+        }
+    else:
+        person_dict = {}
+    
+    return person_dict
 
-# Get all persons
+# Get all persons (returns a list of custom dictionaries)
 def get_all_persons():
     query = """
     SELECT * FROM Person;
@@ -51,4 +67,19 @@ def get_all_persons():
             cursor.execute(query)
             result = cursor.fetchall()
 
-    return result
+    # Custom dictionary for each person
+    persons = []
+    for row in result:
+        person_dict = {
+            "id": row[0],  # PersonID
+            "firstname": row[1],  # FirstName
+            "lastname": row[2],  # LastName
+            "gender": row[3],  # Gender
+            "dateofbirth": row[4],  # DateOfBirth
+            "dateofdeath": row[5],  # DateOfDeath
+            "maternalfamilyid": row[6],  # MaternalFamilyID
+            "paternalfamilyid": row[7]  # PaternalFamilyID
+        }
+        persons.append(person_dict)
+
+    return persons
