@@ -70,7 +70,10 @@ const Home = () => {
         />
 
         {/* Big Column (2 fractions) */}
-        <div className="col-span-2 bg-[#f5f5dc] p-6 rounded-2xl shadow-lg h-64"></div>
+        <div className="col-span-2 bg-[#f5f5dc] p-6 rounded-2xl shadow-lg h-64">
+          {" "}
+          HERE LIES THE PATH TO THE VISUALIZER
+        </div>
 
         {/* Big Column (2 fractions) */}
         <DataContainer data={personData} name="Person" />
