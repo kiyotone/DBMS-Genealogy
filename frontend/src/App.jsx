@@ -8,7 +8,8 @@ import SignUp from "./components/auth/SignUp";
 import Selector from "./components/visuazizer/Selector";
 import Show from './components/visuazizer/Show';
 import Start from './components/Start';
-import DataAdder from './components/DataAdder';
+import DataAdder from './components/dataadd/index';
+import About from './components/About';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/visualizer/show" element={<Show />} />
