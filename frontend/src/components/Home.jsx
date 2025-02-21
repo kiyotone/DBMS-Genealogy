@@ -96,13 +96,20 @@ const Home = () => {
               auditability and better data governance.
             </div>
           </div>
-
-          <button
-            onClick={() => navigate("/visualizer")}
-            className="mt-4 px-3 py-3 text-gray-800 w-[20rem] rounded-2xl bg-[#a78b71]  font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
-          >
-            Visualize Now
-          </button>
+          <div className="text-lg text-black flex justify-between w-9/12 gap-4 ">
+            <button
+              onClick={() => navigate("/visualizer/select")}
+              className=" px-3 py-3 text-gray-800 w-[20rem] rounded-2xl bg-[#a78b71]  font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
+            >
+              Visualize Now
+            </button>
+            <button
+              onClick={() => navigate("/visualizer/select")}
+              className=" px-3 py-3 text-gray-800 w-[20rem] rounded-2xl bg-[#a78b71]  font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
+            >
+              Login to Add Data
+            </button>
+          </div>
         </div>
         <div className="grid grid-cols-2 col-span-2 w gap-8 ">
           {/* Big Column (2 fractions) */}

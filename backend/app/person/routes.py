@@ -12,13 +12,13 @@ def create_person(person: schemas.PersonCreate):
     """
     try:
         crud.create_person(
-            first_name=person.first_name,
-            last_name=person.last_name,
+            firstname=person.firstname,
+            lastname=person.lastname,
             gender=person.gender,
-            date_of_birth=person.date_of_birth,
-            date_of_death=person.date_of_death,
-            maternal_family_id=person.maternal_family_id,
-            paternal_family_id=person.paternal_family_id,
+            dateofbirth=person.dateofbirth,
+            dateofdeath=person.dateofdeath,
+            maternalfamilyid=person.maternalfamilyid,
+            paternalfamilyid=person.paternalfamilyid,
             occupation=person.occupation
         )
         return {"message": "Person created successfully"}

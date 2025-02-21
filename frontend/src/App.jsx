@@ -6,7 +6,8 @@ import Home from "./components/Home";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
 import Selector from "./components/visuazizer/Selector";
-import Show from './components/visuazizer/Show';
+import Show from "./components/visuazizer/Show";
+import DataAdder from "./components/dataadd";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/visualizer/show" element={<Show />} />
           <Route path="/visualizer/select" element={<Selector />} />
+          <Route path="/add" element={<DataAdder />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </div>

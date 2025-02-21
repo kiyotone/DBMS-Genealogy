@@ -1,34 +1,39 @@
 from ..database import get_db_connection
 
 # Create a person (with or without personid)
-def create_person(personid: int = None, firstname: str = None, lastname: str = None, gender: str = None, 
+def create_person(firstname: str = None, lastname: str = None, gender: str = None, 
                   dateofbirth: str = None, dateofdeath: str = None, maternalfamilyid: int = None, 
-                  paternalfamilyid: int = None):
+                  paternalfamilyid: int = None, occupation: str = None):
     
-    print(f"Creating person with ID: {personid}")
+    with get_db_connection() as conn:
+        with conn.cursor() as cursor:
+            
+            # Get the next available PersonID by selecting the max and incrementing by 1
+            cursor.execute("SELECT MAX(PersonID) FROM Person;")
+            result = cursor.fetchone()
+            
+            if result[0] is None:
+                personId = 1  # If no data, start from 1
+            else:
+                personId = result[0] + 1  # Increment the max ID
+            
+            # Insert the new person with the generated personId
+            query = """
+            INSERT INTO Person (PersonID, FirstName, LastName, Gender, DateOfBirth, DateOfDeath, MaternalFamilyID, PaternalFamilyID, Occupation)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
+            """
+            
+            # Pass None for MaternalFamilyID and PaternalFamilyID if they are not provided
+            cursor.execute(query, (personId, firstname, lastname, gender, dateofbirth, dateofdeath, 
+                                   maternalfamilyid if maternalfamilyid is not None else None,
+                                   paternalfamilyid if paternalfamilyid is not None else None,
+                                   occupation))
+            
+            # Commit the transaction
+            conn.commit()
     
-    if personid is not None:
-        # Use the given ID in the insert query
-        query = """
-        INSERT INTO Person (PersonID, FirstName, LastName, Gender, DateOfBirth, DateOfDeath, MaternalFamilyID, PaternalFamilyID)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
-        """
-        with get_db_connection() as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(query, (personid, firstname, lastname, gender, dateofbirth, dateofdeath, 
-                                       maternalfamilyid, paternalfamilyid))
-                conn.commit()
-    else:
-        # Let the database generate the ID automatically
-        query = """
-        INSERT INTO Person (FirstName, LastName, Gender, DateOfBirth, DateOfDeath, MaternalFamilyID, PaternalFamilyID)
-        VALUES (%s, %s, %s, %s, %s, %s, %s);
-        """
-        with get_db_connection() as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(query, (firstname, lastname, gender, dateofbirth, dateofdeath, 
-                                       maternalfamilyid, paternalfamilyid))
-                conn.commit()
+    return personId  # Return the generated personId
+
 
 # Get a person by ID (returns a custom dictionary)
 def get_person_by_id(person_id: int):

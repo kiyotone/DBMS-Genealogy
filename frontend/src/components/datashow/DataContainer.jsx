@@ -10,7 +10,8 @@ const DataContainer = ({ data, name }) => {
       <div className="col-span-1 bg-[#f4d5b5] rounded-lg border-[#a78b71] border-1 shadow-lg overflow-y-scroll h-96 scrollbar-hide">
         <div className="flex items-center justify-between p-4 bg-[#f4d5b5]">
           <h1 className="text-xl font-semibold text-black">{name} Table</h1>
-        </div>
+          <h1 className="text-xl font-semibold text-black">ADD</h1>
+          </div>
 
         <PersonBar index={-1} />
         {data.map((person, index) => (
