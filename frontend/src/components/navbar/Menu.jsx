@@ -19,11 +19,26 @@ const Menu = ({ isOpen }) => {
     <div
       className={`${
         isOpen ? "flex" : "hidden"
-      } md:flex flex-col md:flex-row md:items-center md:space-x-24`}
+      } md:flex flex-col md:flex-row md:items-center md:space-x-12`}
     >
+      {/* Home Button */}
+      <button
+        onClick={()=> navigate("/")}
+        className="  text-[#4A4A4A] font-bold text-2xl hover:scale-115 duration-400 ease-in-out cursor-pointer transition"
+      >
+        Home
+      </button>
+      {/* About Button */}
+      <button
+        onClick={()=> navigate("/")}
+        className="  text-[#4A4A4A] font-bold text-2xl hover:scale-115 duration-400 ease-in-out cursor-pointer transition"
+      >
+        About
+      </button>
+      
       {user ? (
         <button
-          className="px-4 py-2 bg-[#f5f5dc] text-black font-semibold text-2xl hover:scale-115 duration-400 ease-in-out cursor-pointer transition"
+          className="py-4  text-[#4A4A4A] font-bold text-2xl hover:scale-115 duration-400 ease-in-out cursor-pointer transition"
           onClick={() => logoutHandler()}
         >
           Logout
@@ -31,7 +46,7 @@ const Menu = ({ isOpen }) => {
       ) : (
         <button
           onClick={() => navigate("/login")}
-          className="px-4 py-2 bg-[#f5f5dc] text-black font-semibold text-2xl hover:scale-115 duration-400 ease-in-out cursor-pointer transition"
+          className="py-4 text-[#4A4A4A] font-bold text-2xl hover:scale-115 duration-400 ease-in-out cursor-pointer transition"
         >
           Login
         </button>

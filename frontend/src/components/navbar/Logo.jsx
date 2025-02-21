@@ -9,7 +9,7 @@ const Logo = () => {
         alt="GMS Logo"
         className="h-16 w-h-16 object-contain rounded-full"
       />
-      <span className="text-black text-3xl font-normal">Genealogy Management System</span>
+      <span className="px-4 py-2  text-[#4A4A4A] font-bold text-4xl">Genealogy Management System</span>
     </Link>
   );
 };

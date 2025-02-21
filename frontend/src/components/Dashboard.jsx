@@ -26,9 +26,9 @@ const Dashboard = ({ familyData, relationshipData, personData, eventData }) => {
   const totalDataCount = familyData.length + relationshipData.length + personData.length + eventData.length;
 
   return (
-    <div className="col-span-1 bg-[#f3d5b5] border-[#a78b71] border p-6 rounded-xl shadow-lg h-[40rem]">
+    <div className="col-span-1 bg-[#F3D5B5] border-[#A78B71] border p-6 rounded-xl shadow-lg h-[40rem]">
       {/* Total Data Section */}
-      <div className="flex items-center justify-between bg-[#f5f5dc] p-4 rounded-2xl text-2xl font-semibold text-black">
+      <div className="flex items-center justify-between bg-[#E6B89C] p-4 rounded-2xl text-2xl font-semibold text-black">
         <div>
           <p>Total Data:</p>
           <p>{totalDataCount}</p>
@@ -40,22 +40,24 @@ const Dashboard = ({ familyData, relationshipData, personData, eventData }) => {
       </div>
 
       {/* Most Common Family Origin Country */}
-      <div className="flex items-center text-black justify-between bg-[#f5f5dc] p-4 rounded-2xl mt-4">
+      <div className="flex items-center text-black justify-between bg-[#E6B89C] p-4 rounded-2xl mt-4">
         <p className="text-xl">
           Most Families From: <strong>{mostCommonCountry}</strong> ({mostCommonCount} families)
         </p>
       </div>
 
       {/* Chart Section */}
-      <div className="flex justify-center mt-10">
-        <Chart
-          familyData={familyData}
-          relationshipData={relationshipData}
-          personData={personData}
-          eventData={eventData}
-        />
+      <div className="flex justify-center ">
+        <div className="relative w-full max-w-[100%] h-[30rem] overflow-hidden">
+          <Chart
+            familyData={familyData}
+            relationshipData={relationshipData}
+            personData={personData}
+            eventData={eventData}
+          />
+        </div>
       </div>
-    </div>
+      </div>
   );
 };
 
