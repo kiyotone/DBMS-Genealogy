@@ -103,51 +103,51 @@ const DataAdder = () => {
         {selectedType === "person" && (
           <>
             <div className="flex flex-col">
-              <label className="font-medium">First Name</label>
+              <label className="font-medium text-[#4A4A4A]">First Name</label>
               <input
                 {...register("firstname")}
                 placeholder="First Name"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium">Last Name</label>
+              <label className="font-medium text-[#4A4A4A]">Last Name</label>
               <input
                 {...register("lastname")}
                 placeholder="Last Name"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium">Gender</label>
+              <label className="font-medium text-[#4A4A4A]">Gender</label>
               <input
                 {...register("gender")}
                 placeholder="Gender"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium">Date of Birth</label>
+              <label className="font-medium text-[#4A4A4A]">Date of Birth</label>
               <input
                 {...register("dateofbirth")}
                 type="date"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium">Date of Death</label>
+              <label className="font-medium text-[#4A4A4A]">Date of Death</label>
               <input
                 {...register("dateofdeath")}
                 type="date"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium">Occupation</label>
+              <label className="font-medium text-[#4A4A4A]">Occupation</label>
               <input
                 {...register("occupation")}
                 placeholder="Occupation"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
           </>
@@ -166,29 +166,29 @@ const DataAdder = () => {
             </div>
 
             <div className="flex flex-col">
-              <label className="font-medium">Date</label>
+              <label className="font-medium text-[#4A4A4A]">Date</label>
               <input
                 {...register("date")}
                 type="date"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
 
             <div className="flex flex-col">
-              <label className="font-medium">Location</label>
+              <label className="font-medium text-[#4A4A4A]">Location</label>
               <input
                 {...register("location")}
                 placeholder="Location"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
 
             <div className="flex flex-col">
-              <label className="font-medium">Description</label>
+              <label className="font-medium text-[#4A4A4A]">Description</label>
               <input
                 {...register("description")}
                 placeholder="Description"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
 
@@ -279,32 +279,35 @@ const DataAdder = () => {
         {selectedType === "family" && (
           <>
             <div className="flex flex-col">
-              <label className="font-medium">Family Name</label>
+              <label className="font-medium text-[#4A4A4A]">Family Name</label>
               <input
                 {...register("familyname")}
                 placeholder="Family Name"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium">Description</label>
+              <label className="font-medium text-[#4A4A4A]">Description</label>
               <input
                 {...register("description")}
                 placeholder="Description"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium">Origin Country</label>
+              <label className="font-medium text-[#4A4A4A]">Origin Country</label>
               <input
                 {...register("origincountry")}
                 placeholder="Origin Country"
-                className="p-1 border rounded"
+                className="p-1 border rounded text-black"
               />
             </div>
           </>
         )}
-        <button type="submit" className="p-2 bg-green-500 text-white rounded">
+        <button
+          type="submit"
+          className="p-2 bg-[#A78B71] text-white rounded mt-4 hover:scale-105 transition-transform duration-300 ease-in-out"
+        >
           Add
         </button>
       </form>
@@ -312,9 +315,9 @@ const DataAdder = () => {
   };
 
   return (
-    <div className="w-screen text-black text-lg h-screen flex flex-col items-center justify-center bg-[#f4d5b5] rounded-lg border-[#a78b71] border shadow-lg overflow-y-scroll scrollbar-hide">
+    <div className="w-screen text-black text-lg h-screen flex flex-col items-center justify-center bg-[#FDF7F2] rounded-lg border-[#A78B71] border shadow-lg overflow-y-scroll scrollbar-hide">
       <div className="p-4">
-        <h1 className="text-xl font-semibold text-black">Data Adder</h1>
+        <h1 className="text-xl font-semibold text-[#4A4A4A]">Data Adder</h1>
       </div>
       {!selectedType ? (
         <div className="flex flex-col gap-2 p-4">
@@ -322,7 +325,7 @@ const DataAdder = () => {
             <button
               key={type}
               onClick={() => handleTypeSelection(type)}
-              className="p-2 bg-blue-500 text-white rounded"
+              className="p-2 bg-[#A78B71] text-white rounded hover:scale-105 transition-transform duration-300 ease-in-out"
             >
               {type.charAt(0).toUpperCase() + type.slice(1)}
             </button>

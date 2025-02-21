@@ -26,9 +26,9 @@ const Dashboard = ({ familyData, relationshipData, personData, eventData }) => {
   const totalDataCount = familyData.length + relationshipData.length + personData.length + eventData.length;
 
   return (
-    <div className="col-span-1 bg-[#F3D5B5] border-[#A78B71] border p-6 rounded-xl shadow-lg h-[40rem]">
+    <div className="col-span-1 bg-[#F3D5B5] border-[#E6B89C] border p-6 rounded-xl shadow-lg h-[40rem]">
       {/* Total Data Section */}
-      <div className="flex items-center justify-between bg-[#E6B89C] p-4 rounded-2xl text-2xl font-semibold text-black">
+      <div className="flex items-center justify-between bg-[#E6B891] p-4 rounded-2xl text-2xl font-semibold text-black">
         <div>
           <p>Total Data:</p>
           <p>{totalDataCount}</p>
@@ -40,7 +40,7 @@ const Dashboard = ({ familyData, relationshipData, personData, eventData }) => {
       </div>
 
       {/* Most Common Family Origin Country */}
-      <div className="flex items-center text-black justify-between bg-[#E6B89C] p-4 rounded-2xl mt-4">
+      <div className="flex items-center text-black justify-between bg-[#E6B891] p-4 rounded-2xl mt-4">
         <p className="text-xl">
           Most Families From: <strong>{mostCommonCountry}</strong> ({mostCommonCount} families)
         </p>

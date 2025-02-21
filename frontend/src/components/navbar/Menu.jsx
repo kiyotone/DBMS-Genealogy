@@ -30,7 +30,7 @@ const Menu = ({ isOpen }) => {
       </button>
       {/* About Button */}
       <button
-        onClick={()=> navigate("/")}
+        onClick={()=> navigate("/about")}
         className="  text-[#4A4A4A] font-bold text-2xl hover:scale-115 duration-400 ease-in-out cursor-pointer transition"
       >
         About
