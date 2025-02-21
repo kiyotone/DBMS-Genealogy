@@ -32,12 +32,12 @@ def seed_data_from_json(table_name, json_file):
                     values = (row.get("familyname"), row.get("origincountry"), row.get("description"))
                 elif table_name == "Person":
                     query = """
-                    INSERT INTO Person (FirstName, LastName, Gender, DateOfBirth, DateOfDeath, MaternalFamilyID, PaternalFamilyID)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s);
+                    INSERT INTO Person (FirstName, LastName, Gender, DateOfBirth, DateOfDeath, MaternalFamilyID, PaternalFamilyID , Occupation)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s , %s);
                     """
                     values = (row.get("firstname"), row.get("lastname"), row.get("gender"),
                               row.get("dateofbirth"), row.get("dateofdeath"),
-                              row.get("maternalfamilyid"), row.get("paternalfamilyid"))
+                              row.get("maternalfamilyid"), row.get("paternalfamilyid") , row.get("occupation"))
                 elif table_name == "Event":
                     query = """
                     INSERT INTO Event (EventType, Date, Location, Description, AssociatedPersonID, AssociatedFamilyID)
@@ -56,9 +56,10 @@ def seed_data_from_json(table_name, json_file):
                 elif table_name == "Users":
                     query = """
                     INSERT INTO Users (FirstName, LastName, Username, Password, Email, Role)
-                    VALUES (%s, %s, %s, %s);
+                    VALUES (%s, %s, %s, %s , %s, %s);
                     """
-                    values = (row.get("username"), row.get("password"), row.get("email"), row.get("role"))
+                    values = (row.get("firstname"), row.get("lastname"), row.get("username"),
+                              row.get("password"), row.get("email"), row.get("role"))
                 
                 else:
                     print(f"Unknown table: {table_name}")

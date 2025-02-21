@@ -6,7 +6,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[#f5f5dc] shadow-md px-30 fixed top-0 w-full z-50 py-6 flex items-center justify-between">
+    <nav className="bg-[#a78b71] shadow-md px-30 fixed top-0 w-full z-50 py-6 flex items-center justify-between">
       <Logo />
       <button
         className="text-black text-2xl md:hidden"

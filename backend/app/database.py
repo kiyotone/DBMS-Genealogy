@@ -21,6 +21,7 @@ def get_db_connection():
         conn.close()
 
 # Function to create tables
+# Function to create tables
 def create_tables():
     table_creation_queries = """
     CREATE TABLE IF NOT EXISTS Family (
@@ -38,7 +39,8 @@ def create_tables():
         DateOfBirth DATE,
         DateOfDeath DATE,
         MaternalFamilyID INT REFERENCES Family(FamilyID),
-        PaternalFamilyID INT REFERENCES Family(FamilyID)
+        PaternalFamilyID INT REFERENCES Family(FamilyID),
+        Occupation VARCHAR(255)  -- Added occupation column
     );
 
     CREATE TABLE IF NOT EXISTS Event (
@@ -73,3 +75,6 @@ def create_tables():
         with conn.cursor() as cursor:
             cursor.execute(table_creation_queries)
             conn.commit()
+
+# Call the function to create tables
+create_tables()

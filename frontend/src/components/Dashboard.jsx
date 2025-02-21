@@ -1,39 +1,37 @@
 import React from "react";
-import Chart from "./Chart"; // Assuming you have Chart in the same folder
+import Chart from "./Chart"; // Ensure Chart is correctly implemented
 
 const Dashboard = ({ familyData, relationshipData, personData, eventData }) => {
-  // Count the number of males and females in the personData
+  // Count the number of males and females
   const genderCount = personData.reduce(
-    (acc, person) => {
-      if (person.gender === "Male") {
-        acc.males += 1;
-      } else if (person.gender === "Female") {
-        acc.females += 1;
-      }
+    (acc, { gender }) => {
+      if (gender === "Male") acc.males += 1;
+      else if (gender === "Female") acc.females += 1;
       return acc;
     },
     { males: 0, females: 0 }
   );
 
-  // Calculate the most common family origin country
-  const originCountryCount = familyData.reduce((acc, family) => {
-    const country = family.origin_country;
-    acc[country] = (acc[country] || 0) + 1;
+  // Determine the most common family origin country
+  const originCountryCount = familyData.reduce((acc, { origin_country }) => {
+    acc[origin_country] = (acc[origin_country] || 0) + 1;
     return acc;
   }, {});
 
-  const mostCommonCountry = Object.entries(originCountryCount).reduce(
+  const [mostCommonCountry, mostCommonCount] = Object.entries(originCountryCount).reduce(
     (prev, current) => (current[1] > prev[1] ? current : prev),
-    ["", 0]
+    ["Unknown", 0]
   );
 
+  const totalDataCount = familyData.length + relationshipData.length + personData.length + eventData.length;
+
   return (
-    <div className="col-span-2 bg-[#f5f5dc] p-6 rounded-2xl shadow-lg h-[40rem]">
-      {/* Total Data Header */}
+    <div className="col-span-1 bg-[#f3d5b5] border-[#a78b71] border p-6 rounded-xl shadow-lg h-[40rem]">
+      {/* Total Data Section */}
       <div className="flex items-center justify-between bg-[#f5f5dc] p-4 rounded-2xl text-2xl font-semibold text-black">
         <div>
           <p>Total Data:</p>
-          <p>{familyData.length + relationshipData.length + personData.length + eventData.length}</p>
+          <p>{totalDataCount}</p>
         </div>
         <div className="text-lg">
           <p>Males: {genderCount.males}</p>
@@ -44,12 +42,12 @@ const Dashboard = ({ familyData, relationshipData, personData, eventData }) => {
       {/* Most Common Family Origin Country */}
       <div className="flex items-center text-black justify-between bg-[#f5f5dc] p-4 rounded-2xl mt-4">
         <p className="text-xl">
-          Most Families From: <strong>{mostCommonCountry[0]}</strong> ({mostCommonCountry[1]} families)
+          Most Families From: <strong>{mostCommonCountry}</strong> ({mostCommonCount} families)
         </p>
       </div>
 
       {/* Chart Section */}
-      <div className="flex items-center justify-between ml-20 mt-20 p-4 rounded-2xl ">
+      <div className="flex justify-center mt-10">
         <Chart
           familyData={familyData}
           relationshipData={relationshipData}

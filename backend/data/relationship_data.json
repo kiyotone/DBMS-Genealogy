@@ -1,44 +1,30 @@
 [
-    {
-        "relationshipid": 1,
-        "person1id": 1,
-        "person2id": 2,
-        "relationshiptype": "Spouse",
-        "status": "Married"
-    },
-    {
-        "relationshipid": 2,
-        "person1id": 3,
-        "person2id": 4,
-        "relationshiptype": "Siblings",
-        "status": "Alive"
-    },
-    {
-        "relationshipid": 3,
-        "person1id": 5,
-        "person2id": 6,
-        "relationshiptype": "Parent-Child",
-        "status": "Alive"
-    },
-    {
-        "relationshipid": 4,
-        "person1id": 1,
-        "person2id": 3,
-        "relationshiptype": "Cousins",
-        "status": "Alive"
-    },
-    {
-        "relationshipid": 5,
-        "person1id": 2,
-        "person2id": 6,
-        "relationshiptype": "Siblings",
-        "status": "Alive"
-    },
-    {
-        "relationshipid": 6,
-        "person1id": 3,
-        "person2id": 7,
-        "relationshiptype": "Cousins",
-        "status": "Alive"
-    }
+  {"relationshipid": 1, "person1id": 1, "person2id": 2, "relationshiptype": "Spouse"},
+  {"relationshipid": 2, "person1id": 3, "person2id": 4, "relationshiptype": "Spouse"},
+  {"relationshipid": 3, "person1id": 5, "person2id": 6, "relationshiptype": "Spouse"},
+  {"relationshipid": 4, "person1id": 7, "person2id": 8, "relationshiptype": "Spouse"},
+
+  {"relationshipid": 5, "person1id": 1, "person2id": 5, "relationshiptype": "Father"},
+  {"relationshipid": 6, "person1id": 2, "person2id": 5, "relationshiptype": "Mother"},
+
+
+  {"relationshipid": 7, "person1id": 5, "person2id": 9, "relationshiptype": "Father"},
+  {"relationshipid": 8, "person1id": 6, "person2id": 9, "relationshiptype": "Mother"},
+
+
+
+  {"relationshipid": 9, "person1id": 5, "person2id": 7, "relationshiptype": "Father"},
+  {"relationshipid": 10, "person1id": 6, "person2id": 7, "relationshiptype": "Mother"},
+
+  {"relationshipid": 11, "person1id": 7, "person2id": 10, "relationshiptype": "Father"},
+  {"relationshipid": 12, "person1id": 8, "person2id": 10, "relationshiptype": "Mother"},
+  
+  {"relationshipid": 13, "person1id": 7, "person2id": 13, "relationshiptype": "Father"},
+  
+  {"relationshipid": 14, "person1id": 7, "person2id": 14, "relationshiptype": "Father"},
+  
+  {"relationshipid": 15, "person1id": 9, "person2id": 15, "relationshiptype": "Father"}
+
+
+
 ]

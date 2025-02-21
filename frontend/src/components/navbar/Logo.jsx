@@ -7,9 +7,9 @@ const Logo = () => {
       <img
         src="/models/images/GMSlogo.png"
         alt="GMS Logo"
-        className="h-12 w-12 object-contain rounded-full"
+        className="h-16 w-h-16 object-contain rounded-full"
       />
-      <span>Genealogy Management System</span>
+      <span className="text-black text-3xl font-normal">Genealogy Management System</span>
     </Link>
   );
 };

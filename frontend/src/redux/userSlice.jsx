@@ -1,14 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: null,          // User information (could be an object or null)
-  isAuthenticated: false,  // Authentication status
-  loading: false,         // Loading state for async actions (optional)
-  error: null,            // Error state for async actions (optional)
+  user: null, // User information (could be an object or null)
+  isAuthenticated: false, // Authentication status
+  loading: false, // Loading state for async actions (optional)
+  error: null, // Error state for async actions (optional)
+  desenderId: null,
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     loginStart: (state) => {
@@ -28,11 +29,16 @@ const userSlice = createSlice({
       state.user = null;
       state.isAuthenticated = false;
     },
+
+    setDesenderId: (state, action) => {
+      state.desenderId = action.payload;
+    },
   },
 });
 
 // Exporting actions to use in components
-export const { loginStart, loginSuccess, loginFailure, logout } = userSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logout  , setDesenderId } =
+  userSlice.actions;
 
 // Exporting reducer to be used in the store
 export default userSlice.reducer;

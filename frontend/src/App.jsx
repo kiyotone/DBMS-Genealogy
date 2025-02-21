@@ -5,7 +5,8 @@ import styles from "./App.module.css";
 import Home from "./components/Home";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
-import Visualizer from "./components/visuazizer";
+import Selector from "./components/visuazizer/Selector";
+import Show from './components/visuazizer/Show';
 
 const App = () => {
   return (
@@ -16,7 +17,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/visualizer" element={<Visualizer />} />
+          <Route path="/visualizer/show" element={<Show />} />
+          <Route path="/visualizer/select" element={<Selector />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </div>

@@ -22,7 +22,7 @@ const PersonBar = ({ data, index }) => {
   return (
     <div
       className={`grid grid-cols-4 text-black p-4 border-b border-gray-300 ${
-        odd ? "bg-yellow-200" : "bg-yellow-300"
+        odd ? "bg-[#f4d5b5]" : "bg-[#e6b89c]"
       }`}
     >
       <div className="text-left">{data.firstname}</div>

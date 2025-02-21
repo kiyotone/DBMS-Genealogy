@@ -22,8 +22,7 @@ const RelationshipBar = ({ data, index }) => {
   return (
     <div
       className={`grid grid-cols-3 text-black p-4 border-b border-gray-300 ${
-        odd ? "bg-yellow-200" : "bg-yellow-300"
-      }`}
+        odd ? "bg-[#f4d5b5]" : "bg-[#e6b89c]"      }`}
     >
       <div className="text-left">{data.person1_id}</div>
       <div className="text-left">{data.person2_id}</div>

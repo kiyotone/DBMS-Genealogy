@@ -50,7 +50,8 @@ def get_person_by_id(person_id: int):
             "dateofbirth": result[4],  # DateOfBirth
             "dateofdeath": result[5],  # DateOfDeath
             "maternalfamilyid": result[6],  # MaternalFamilyID
-            "paternalfamilyid": result[7]  # PaternalFamilyID
+            "paternalfamilyid": result[7] ,  # PaternalFamilyID
+            "occupation": result[8]  # Occupation
         }
     else:
         person_dict = {}
@@ -78,7 +79,8 @@ def get_all_persons():
             "dateofbirth": row[4],  # DateOfBirth
             "dateofdeath": row[5],  # DateOfDeath
             "maternalfamilyid": row[6],  # MaternalFamilyID
-            "paternalfamilyid": row[7]  # PaternalFamilyID
+            "paternalfamilyid": row[7],  # PaternalFamilyID
+            "occupation": row[8]  # Occupation
         }
         persons.append(person_dict)
 
