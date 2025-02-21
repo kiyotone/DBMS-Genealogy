@@ -23,7 +23,7 @@ const Menu = ({ isOpen }) => {
     >
       {/* Home Button */}
       <button
-        onClick={()=> navigate("/")}
+        onClick={()=> navigate("/home")}
         className="  text-[#4A4A4A] font-bold text-2xl hover:scale-115 duration-400 ease-in-out cursor-pointer transition"
       >
         Home

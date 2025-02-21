@@ -11,14 +11,14 @@ def create_event(event: schemas.EventCreate):
     """
     try:
         crud.create_event(
-            event_type=event.event_type,
+            eventtype=event.eventtype,
             date=event.date,
             location=event.location,
             description=event.description,
-            associated_person_id=event.associated_person_id,
-            associated_family_id=event.associated_family_id
+            associatedpersonid=event.associatedpersonid,
+            associatedfamilyid=event.associatedfamilyid
         )
-        return {"message": "Event created successfully"}
+        return {"message": "Event created successfully" , "status": 200}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error creating event: {str(e)}")
 

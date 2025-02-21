@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 class FamilyCreate(BaseModel):
-    family_name: str
-    origin_country: str
+    familyname: str
+    origincountry: str
     description: str = None

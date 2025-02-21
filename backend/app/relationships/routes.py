@@ -11,9 +11,9 @@ def create_relationship(relationship: schemas.RelationshipCreate):
     """
     try:
         crud.create_relationship(
-            person1_id=relationship.person1_id,
-            person2_id=relationship.person2_id,
-            relationship_type=relationship.relationship_type,
+            person1id=relationship.person1id,
+            person2id=relationship.person2id,
+            relationshiptype=relationship.relationshiptype,
             status=relationship.status
         )
         return {"message": "Relationship created successfully"}

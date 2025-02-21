@@ -20,7 +20,13 @@ export const getPersonMember = async (id) => {
 
 export const addPersonMember = async (data) => {
   try {
-    const response = await api.post("/person/", data); // Make sure the endpoint is correct
+    console.log("Data from addPersonMember:", data);
+    const response = await api.post("person", data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("Response from addPersonMember:", response);
     return response.data;
   } catch (error) {
     console.error("Error adding person member:", error);
@@ -34,7 +40,7 @@ export const getHierarchyLevel = async (id) => {
   } catch (error) {
     console.error("Error loading data:", error);
   }
-}
+};
 
 export const getDescendants = async (id) => {
   try {
@@ -43,4 +49,4 @@ export const getDescendants = async (id) => {
   } catch (error) {
     console.error("Error loading data:", error);
   }
-}
+};

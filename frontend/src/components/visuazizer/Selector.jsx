@@ -6,6 +6,8 @@ import {
 } from "../../api/genealogy/person";
 import { setFamilyData, setPersonData } from "../../redux/visualizerSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 
 const Selector = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,6 +20,7 @@ const Selector = () => {
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [genData, setGenData] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const lastFetchedPersonId = useRef(null); // Prevent unnecessary API calls
 
@@ -25,7 +28,8 @@ const Selector = () => {
     const fetchData = async () => {
       try {
         const persons = await getPerson();
-        setAllPersons(persons);
+        console.log("Persons Data:", persons);
+        setAllPersons(persons.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -66,9 +70,9 @@ const Selector = () => {
         const response = await getHierarchyLevel(person.id);
         console.log("Hierarchy Data:", response);
 
-        setGenData(response.hierarchy);
+        setGenData(response.data.hierarchy);
         setHierarchyOptions(
-          Array.from({ length: response.levels }, (_, i) => i + 1)
+          Array.from({ length: response.data.levels }, (_, i) => i + 1)
         ); // Ensure proper level range
       } catch (error) {
         console.error("Error fetching hierarchy:", error);
@@ -129,15 +133,16 @@ const transformedData = (originalData) => {
     try {
       const response = await getDescendants(id);
       console.log("Hierarchy Data:", response);
-      dispatch(setFamilyData(response));
+      dispatch(setFamilyData(response.data));
       
     } catch (error) {
       console.error("Error fetching hierarchy:", error);
     }
 
     const response = await getPerson();
-    console.log("Person Data:", transformedData(response));
-    dispatch(setPersonData(transformedData(response)));
+    console.log("Person Data:", transformedData(response.data));
+    dispatch(setPersonData(transformedData(response.data)));
+    navigate("/visualizer/show");
 
   };
 

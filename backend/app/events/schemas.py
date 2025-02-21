@@ -3,9 +3,9 @@ from typing import Optional
 from datetime import date
 
 class EventCreate(BaseModel):
-    EventType: str
-    Date: date
-    Location: Optional[str] = None
-    Description: Optional[str] = None
-    AssociatedPersonID: Optional[int] = None
-    AssociatedFamilyID: Optional[int] = None
+    eventtype: str
+    date: date
+    location: Optional[str] = None
+    description: Optional[str] = None
+    associatedpersonid: Optional[int] = None
+    associatedfamilyid: Optional[int] = None

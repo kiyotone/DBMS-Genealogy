@@ -23,7 +23,7 @@ const Login = () => {
     } else {
       console.log("response", response);
       dispatch(loginSuccess(response));
-      navigate("/");
+      navigate("/home");
     }
   };
 

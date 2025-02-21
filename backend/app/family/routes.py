@@ -6,8 +6,8 @@ router = APIRouter()
 
 @router.post("/")
 def create_family(family: schemas.FamilyCreate):
-    crud.create_family(family.family_name, family.origin_country, family.description)
-    return {"message": "Family created successfully"}
+    crud.create_family(family.familyname, family.origincountry, family.description)
+    return {"message": "Family created successfully" , "status": 200}
 
 @router.get("/{family_id}")
 def get_family(family_id: int):

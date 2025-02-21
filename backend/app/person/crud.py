@@ -1,21 +1,24 @@
 from ..database import get_db_connection
 
-# Create a person (with or without personid)
 def create_person(firstname: str = None, lastname: str = None, gender: str = None, 
                   dateofbirth: str = None, dateofdeath: str = None, maternalfamilyid: int = None, 
                   paternalfamilyid: int = None, occupation: str = None):
     
     with get_db_connection() as conn:
         with conn.cursor() as cursor:
+                    
+            # Check if the person already exists
+            cursor.execute("SELECT PersonID FROM Person WHERE FirstName = %s AND LastName = %s;", (firstname, lastname))
+            existing_person = cursor.fetchone()
+            
+            if existing_person:
+                return existing_person[0]  # Return existing PersonID if found
             
             # Get the next available PersonID by selecting the max and incrementing by 1
             cursor.execute("SELECT MAX(PersonID) FROM Person;")
             result = cursor.fetchone()
             
-            if result[0] is None:
-                personId = 1  # If no data, start from 1
-            else:
-                personId = result[0] + 1  # Increment the max ID
+            personId = 1 if result[0] is None else result[0] + 1  # If no data, start from 1
             
             # Insert the new person with the generated personId
             query = """
@@ -23,14 +26,12 @@ def create_person(firstname: str = None, lastname: str = None, gender: str = Non
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
             """
             
-            # Pass None for MaternalFamilyID and PaternalFamilyID if they are not provided
             cursor.execute(query, (personId, firstname, lastname, gender, dateofbirth, dateofdeath, 
                                    maternalfamilyid if maternalfamilyid is not None else None,
                                    paternalfamilyid if paternalfamilyid is not None else None,
                                    occupation))
             
-            # Commit the transaction
-            conn.commit()
+            conn.commit()  # Commit the transaction
     
     return personId  # Return the generated personId
 

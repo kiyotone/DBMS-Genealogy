@@ -20,8 +20,8 @@ const EventBar = ({ data, index }) => {
         odd ? "bg-[#f4d5b5]" : "bg-[#e6b89c]"      }`}
     >
       <div className="text-left">{data.type}</div>
-      <div className="text-left">{data.associated_person_id}</div>
-      <div className="text-left">{data.associated_family_id}</div>
+      <div className="text-left">{data.associated_person_name}</div>
+      <div className="text-left">{data.associated_family_name}</div>
     </div>
   );
 };

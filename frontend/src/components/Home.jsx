@@ -22,11 +22,16 @@ const Home = () => {
         const relationship = await getRelationship();
         const person = await getPerson();
         const event = await getEvent();
+        
+        setPersonData(person.data);
+        
+        setFamilyData(family.data);
 
-        setFamilyData(family);
-        setRelationshipData(relationship);
-        setPersonData(person);
-        setEventData(event);
+        console.log(relationship);
+
+        setRelationshipData(relationship.data);
+        
+        setEventData(event.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -34,6 +39,7 @@ const Home = () => {
 
     fetchData();
   }, []);
+
 
   return (
     <div className="mt-24 flex flex-col items-center bg-[#FDF7F2] w-screen p-10">
@@ -106,7 +112,7 @@ const Home = () => {
               Visualize Now
             </button>
             <button
-              onClick={() => navigate("/visualizer/select")}
+              onClick={() => navigate("/add")}
               className=" px-3 py-3 text-gray-800 w-[20rem] rounded-2xl bg-[#a78b71]  font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
             >
               Add Data
