@@ -1,115 +1,44 @@
 // src/components/Chart.js
-import React, { useState } from "react";
+import React from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+  Legend,
+} from "recharts";
 
 const Chart = ({ familyData, relationshipData, personData, eventData }) => {
-  // Ensure the data arrays are valid
-  const safeFamilyData = familyData || [];
-  const safeRelationshipData = relationshipData || [];
-  const safePersonData = personData || [];
-  const safeEventData = eventData || [];
-
-  // Normalize the data to set the height
-  const maxDataValue = Math.max(
-    safeFamilyData.length,
-    safeRelationshipData.length,
-    safePersonData.length,
-    safeEventData.length
-  );
-
-  const normalizeHeight = (value) => {
-    return (value / maxDataValue) * 100; // Normalize the value to a percentage
-  };
-
-  // State to hold which bar is being hovered
-  const [hoveredBar, setHoveredBar] = useState(null);
-
-  // Function to handle mouse enter and set the hovered bar
-  const handleMouseEnter = (bar) => {
-    setHoveredBar(bar);
-  };
-
-  // Function to handle mouse leave and reset the hovered bar
-  const handleMouseLeave = () => {
-    setHoveredBar(null);
-  };
+  const data = [
+    { name: "Families", count: familyData.length },
+    { name: "Relationships", count: relationshipData.length },
+    { name: "Persons", count: personData.length },
+    { name: "Events", count: eventData.length },
+  ];
 
   return (
-    <div className="flex justify-around h-60 w-[20rem] items-end ">
-      {/* Family Bar */}
-      <div
-        className="h-full w-1/8 flex flex-col items-center justify-end relative"
-        onMouseEnter={() => handleMouseEnter("family")}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div
-          className="w-4/5 bg-blue-500 rounded-3xl flex items-center justify-center"
-          style={{
-            height: `${normalizeHeight(safeFamilyData.length)}%`,
-          }}
-        >
-          {hoveredBar === "family" && (
-            <div className="text-white text-sm font-bold">{safeFamilyData.length}</div>
-          )}
-        </div>
-        <div className="text-black text-sm mt-1">Fam</div>
-      </div>
-
-      {/* Relationship Bar */}
-      <div
-        className="h-full w-1/8 flex flex-col items-center justify-end relative"
-        onMouseEnter={() => handleMouseEnter("relationship")}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div
-          className="w-4/5 bg-blue-500 rounded-3xl flex items-center justify-center"
-          style={{
-            height: `${normalizeHeight(safeRelationshipData.length)}%`,
-          }}
-        >
-          {hoveredBar === "relationship" && (
-            <div className="text-white text-sm font-bold">{safeRelationshipData.length}</div>
-          )}
-        </div>
-        <div className="text-black text-sm mt-1">Rel</div>
-      </div>
-
-      {/* Person Bar */}
-      <div
-        className="h-full w-1/8 flex flex-col items-center justify-end relative"
-        onMouseEnter={() => handleMouseEnter("person")}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div
-          className="w-4/5 bg-blue-500 rounded-3xl flex items-center justify-center"
-          style={{
-            height: `${normalizeHeight(safePersonData.length)}%`,
-          }}
-        >
-          {hoveredBar === "person" && (
-            <div className="text-white text-sm font-bold">{safePersonData.length}</div>
-          )}
-        </div>
-        <div className="text-black text-sm mt-1">Per</div>
-      </div>
-
-      {/* Event Bar */}
-      <div
-        className="h-full w-1/8 flex flex-col items-center justify-end relative"
-        onMouseEnter={() => handleMouseEnter("event")}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div
-          className="w-4/5 bg-blue-500 rounded-3xl flex items-center justify-center"
-          style={{
-            height: `${normalizeHeight(safeEventData.length)}%`,
-          }}
-        >
-          {hoveredBar === "event" && (
-            <div className="text-white text-sm font-bold">{safeEventData.length}</div>
-          )}
-        </div>
-        <div className="text-black text-sm mt-1">Evt</div>
-      </div>
+    <div className="w-full h-[25rem] mt-10 bg-[#FDF7F2] p-4 rounded-xl shadow-md">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+          <CartesianGrid stroke="#E6B89C" strokeDasharray="3 3" />
+          <XAxis dataKey="name" stroke="#4A4A4A" />
+          <YAxis stroke="#4A4A4A" />
+          <Tooltip
+            contentStyle={{ backgroundColor: "#F3D5B5", border: "none", borderRadius: "10px" }}
+            itemStyle={{ color: "#4A4A4A" }}
+          />
+          <Legend wrapperStyle={{ color: "#4A4A4A" }} />
+          <Bar
+            dataKey="count"
+            fill="#7C5E4C"
+            radius={[10, 10, 0, 0]}
+            barSize={50}
+          />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };

@@ -28,19 +28,19 @@ const Login = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen items-center justify-center bg-[#fdf2f8]">
-      <div className="w-96 p-6 bg-white shadow-lg border border-gray-200 rounded-lg text-center">
+    <div className="flex h-screen w-screen items-center justify-center bg-[#FDF7F2]">
+      <div className="w-96 p-6 bg-white shadow-lg border border-[#A78B71] rounded-lg text-center">
         <div className="flex flex-col items-center mb-4">
           <img
             src="models/images/GMSlogo.png"
             alt="GMS Logo"
             className="h-16 w-16"
           />
-          <h1 className="text-xl font-bold mt-2 text-black">GMS</h1>
+          <h1 className="text-xl font-bold mt-2 text-[#4A4A4A]">GMS</h1>
         </div>
 
         <div className="mt-4">
-          <h2 className="text-2xl font-bold mb-6 text-black font-serif">
+          <h2 className="text-2xl font-bold mb-6 text-[#4A4A4A] font-serif">
             Login
           </h2>
           <form
@@ -57,7 +57,7 @@ const Login = () => {
                 type="text"
                 placeholder="Username"
                 {...register("username", { required: "Username is required" })}
-                className="w-4/5 pl-10 pr-4 py-2 border border-black rounded-lg text-black text-sm"
+                className="w-4/5 pl-10 pr-4 py-2 border border-[#A78B71] rounded-lg text-[#4A4A4A] text-sm"
               />
               {errors.username && (
                 <p className="text-red-500 text-xs">
@@ -76,7 +76,7 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 {...register("password", { required: "Password is required" })}
-                className="w-4/5 pl-10 pr-4 py-2 border border-black rounded-lg text-black text-sm"
+                className="w-4/5 pl-10 pr-4 py-2 border border-[#A78B71] rounded-lg text-[#4A4A4A] text-sm"
               />
               {errors.password && (
                 <p className="text-red-500 text-xs">
@@ -85,7 +85,7 @@ const Login = () => {
               )}
             </div>
 
-            <div className="flex justify-between items-center text-sm text-gray-600">
+            <div className="flex justify-between items-center text-sm text-[#4A4A4A]">
               <div className="flex items-center">
                 <input
                   type="checkbox"
@@ -93,13 +93,13 @@ const Login = () => {
                   {...register("remember")}
                   className="mr-2"
                 />
-                <label htmlFor="remember" className="text-black">
+                <label htmlFor="remember" className="text-[#4A4A4A]">
                   Remember Me
                 </label>
               </div>
               <a
                 href="/forgotpassword"
-                className="text-green-500 hover:text-black hover:underline"
+                className="text-[#10b981] hover:text-black hover:underline"
               >
                 Forgot Password?
               </a>
@@ -107,18 +107,18 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full py-2 bg-green-600 text-black font-semibold rounded-lg mt-4 hover:bg-teal-700"
+              className="w-full py-2 bg-[#7C5E4C] text-white font-semibold rounded-lg mt-4 hover:bg-[#C66B3D]"
             >
               Login
             </button>
           </form>
 
-          <div className="mt-4 text-sm text-gray-600">
+          <div className="mt-4 text-sm text-[#4A4A4A]">
             <p>
               Don’t have an account?{" "}
               <a
                 href="/signup"
-                className="text-green-500 hover:underline hover:text-black"
+                className="text-[#10b981] hover:underline hover:text-black"
               >
                 Register
               </a>
