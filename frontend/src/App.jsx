@@ -8,6 +8,7 @@ import SignUp from "./components/auth/SignUp";
 import Selector from "./components/visuazizer/Selector";
 import Show from './components/visuazizer/Show';
 import Start from './components/Start';
+import DataAdder from './components/DataAdder';
 
 const App = () => {
   return (

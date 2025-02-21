@@ -54,8 +54,9 @@ const Home = () => {
               </p>
             </div>
             <button
-              onClick={()=> navigate("/login")}
-              className="ml-10 px-3 py-2 text-[#A78B71] font-semibold text-2xl rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out">
+              onClick={() => navigate("/login")}
+              className="ml-10 px-3 py-2 text-[#A78B71] font-semibold text-2xl rounded-lg hover:scale-105 transition-transform duration-300 ease-in-out"
+            >
               Login Now
             </button>
           </div>
@@ -97,12 +98,20 @@ const Home = () => {
             </div>
           </div>
 
-          <button
-            onClick={() => navigate("/visualizer")}
-            className="mt-4 px-3 py-3 text-[#4A4A4A] w-[20rem] rounded-2xl bg-[#A78B71] font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
-          >
-            Visualize Now
-          </button>
+          <div className="text-lg text-black flex justify-between w-9/12 gap-4 ">
+            <button
+              onClick={() => navigate("/visualizer/select")}
+              className=" px-3 py-3 text-gray-800 w-[20rem] rounded-2xl bg-[#a78b71]  font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
+            >
+              Visualize Now
+            </button>
+            <button
+              onClick={() => navigate("/visualizer/select")}
+              className=" px-3 py-3 text-gray-800 w-[20rem] rounded-2xl bg-[#a78b71]  font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
+            >
+              Add Data
+            </button>
+          </div>
         </div>
 
         {/* Data Containers */}
