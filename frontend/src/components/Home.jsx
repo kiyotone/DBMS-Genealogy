@@ -72,7 +72,7 @@ const Home = () => {
               Visualize Now
             </button>
             <button
-              onClick={() => navigate("/visualizer/select")}
+              onClick={() => navigate("/add")}
               className="px-3 py-3 text-white w-[20rem] rounded-2xl bg-[#A78B71] font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
             >
               Add Data
@@ -88,49 +88,6 @@ const Home = () => {
           eventData={eventData}
         />
 
-        {/* Visualize Your Data Section */}
-        <div className="col-span-2 border-1 flex flex-col items-center border-[#E6B89C] bg-[#F3D5B5] p-6 px-28 rounded-lg shadow-lg">
-          <div className="font-semibold text-[#4A4A4A] text-4xl">
-            VISUALIZE YOUR DATA
-          </div>
-          <div className="text-lg text-[#4A4A4A] my-24 grid grid-cols-2 gap-4">
-            <div className="col-span-1 bg-[#E6B89C] p-10 rounded-xl shadow-lg">
-              <h3 className="text-2xl pb-6 font-semibold mb-2 text-[#4A4A4A]">
-                Explore Data Lineage
-              </h3>
-              Trace the journey of your data with our interactive genealogy
-              visualizer. See how data evolves, transforms, and connects across
-              systems to ensure accuracy and integrity. Gain deeper insights
-              into data dependencies, uncover potential bottlenecks, and make
-              informed decisions based on a clear lineage structure.
-            </div>
-            <div className="col-span-1 bg-[#E6B89C] p-10 rounded-xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-2 text-[#4A4A4A]">
-                Add & Manage Data
-              </h3>
-              Easily contribute new data to the system while maintaining
-              structured lineage tracking. Keep records organized, transparent,
-              and up-to-date. Ensure seamless integration with existing data
-              sets and maintain a comprehensive history of changes for
-              auditability and better data governance.
-            </div>
-          </div>
-
-          <div className="text-lg text-black flex justify-between w-9/12 gap-4 ">
-            <button
-              onClick={() => navigate("/visualizer/select")}
-              className=" px-3 py-3 text-gray-800 w-[20rem] rounded-2xl bg-[#a78b71]  font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
-            >
-              Visualize Now
-            </button>
-            <button
-              onClick={() => navigate("/add")}
-              className=" px-3 py-3 text-gray-800 w-[20rem] rounded-2xl bg-[#a78b71]  font-semibold text-2xl hover:scale-105 transition-transform duration-300 ease-in-out"
-            >
-              Add Data
-            </button>
-          </div>
-        </div>
 
         {/* Data Containers */}
           <div className="grid grid-cols-2 col-span-2 gap-8 mt-8">
