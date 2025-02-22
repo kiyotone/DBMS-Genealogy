@@ -4,7 +4,7 @@ const EventBar = ({ data, index }) => {
   if (index === -1) {
     return (
       <div className="grid grid-cols-3 text-black p-4 bg-gray-400 font-bold border-b border-gray-600">
-        <div className="text-left">Event Tyoe</div>
+        <div className="text-left">Event Type</div>
         <div className="text-left">Associated Person</div>
         <div className="text-left">Associated Family</div>
       </div>
