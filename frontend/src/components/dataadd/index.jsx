@@ -10,7 +10,7 @@ import { getFamily } from "../../api/genealogy/family"; // Import family API fun
 
 const DataAdder = () => {
   const [selectedType, setSelectedType] = useState(null);
-  const { register, handleSubmit, reset, setValue } = useForm();
+  const { register, handleSubmit, reset, setValue, watch } = useForm();
   const [allPersons, setAllPersons] = useState([]);
   const [allFamilies, setAllFamilies] = useState([]); // State for families
   const [relationshipOptions, setRelationshipOptions] = useState([
@@ -65,22 +65,40 @@ const DataAdder = () => {
   };
 
   const onSubmit = async (formData) => {
+    const formattedData = {
+      ...formData,
+      dateofbirth: formData.dateofbirth
+        ? new Date(formData.dateofbirth).toISOString()
+        : null,
+      dateofdeath: formData.dateofdeath
+        ? new Date(formData.dateofdeath).toISOString()
+        : null,
+      date: formData.date ? new Date(formData.date).toISOString() : null,
+    };
     console.log("Form data:", formData);
+
+    // If any data inn form data is empty string then make it null
+    for (const key in formattedData) {
+      if (formattedData[key] === "") {
+        formattedData[key] = null;
+      }
+    }
+    console.log("Formatted Data:", formattedData);
 
     try {
       let response;
 
       if (selectedType === "person") {
-        response = await addPersonMember(formData);
+        response = await addPersonMember(formattedData);
       }
       if (selectedType === "event") {
-        response = await addEvent(formData);
+        response = await addEvent(formattedData);
       }
       if (selectedType === "relationship") {
-        response = await addRelationshipMember(formData);
+        response = await addRelationshipMember(formattedData);
       }
       if (selectedType === "family") {
-        response = await addFamilyMember(formData);
+        response = await addFamilyMember(formattedData);
       }
 
       if (response?.status === 200) {
@@ -127,7 +145,9 @@ const DataAdder = () => {
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium text-[#4A4A4A]">Date of Birth</label>
+              <label className="font-medium text-[#4A4A4A]">
+                Date of Birth
+              </label>
               <input
                 {...register("dateofbirth")}
                 type="date"
@@ -135,12 +155,26 @@ const DataAdder = () => {
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium text-[#4A4A4A]">Date of Death</label>
+              <label className="font-medium text-[#4A4A4A]">
+                Date of Death
+              </label>
               <input
                 {...register("dateofdeath")}
                 type="date"
                 className="p-1 border rounded text-black"
+                disabled={watch("alive")}
               />
+            </div>
+            <div className="flex items-center gap-2 mt-2">
+              <input
+                type="checkbox"
+                {...register("alive")}
+                id="alive"
+                className="w-4 h-4"
+              />
+              <label htmlFor="alive" className="font-medium text-[#4A4A4A]">
+                Alive
+              </label>
             </div>
             <div className="flex flex-col">
               <label className="font-medium text-[#4A4A4A]">Occupation</label>
@@ -152,6 +186,7 @@ const DataAdder = () => {
             </div>
           </>
         )}
+
         {selectedType === "event" && (
           <>
             <div className="flex flex-col">
@@ -295,7 +330,9 @@ const DataAdder = () => {
               />
             </div>
             <div className="flex flex-col">
-              <label className="font-medium text-[#4A4A4A]">Origin Country</label>
+              <label className="font-medium text-[#4A4A4A]">
+                Origin Country
+              </label>
               <input
                 {...register("origincountry")}
                 placeholder="Origin Country"
