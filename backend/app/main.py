@@ -26,7 +26,6 @@ def read_root():
 
 create_tables()
 
-
 # Include family-related routes
 app.include_router(family_router, prefix="/family", tags=["Family"])
 # Include person-related routes
