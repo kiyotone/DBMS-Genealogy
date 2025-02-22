@@ -1,167 +1,168 @@
 [
-    {
-        "personid": 1,
-        "firstname": "Robert",
-        "lastname": "Smith",
-        "gender": "Male",
-        "dateofbirth": "1955-06-10",
-        "dateofdeath": null,
-        "maternalfamilyid": null,
-        "paternalfamilyid": null,
-        "occupation": "Retired Engineer"
-    },
-    {
-        "personid": 2,
-        "firstname": "Linda",
-        "lastname": "Smith",
-        "gender": "Female",
-        "dateofbirth": "1958-09-15",
-        "dateofdeath": null,
-        "maternalfamilyid": null,
-        "paternalfamilyid": null,
-        "occupation": "Teacher"
-    },
-    {
-        "personid": 3,
-        "firstname": "John",
-        "lastname": "Smith",
-        "gender": "Male",
-        "dateofbirth": "1980-01-15",
-        "dateofdeath": null,
-        "maternalfamilyid": 1,
-        "paternalfamilyid": 1,
-        "occupation": "Software Developer"
-    },
-    {
-        "personid": 4,
-        "firstname": "Jane",
-        "lastname": "Smith",
-        "gender": "Female",
-        "dateofbirth": "1985-04-22",
-        "dateofdeath": null,
-        "maternalfamilyid": 1,
-        "paternalfamilyid": 1,
-        "occupation": "Doctor"
-    },
-    {
-        "personid": 5,
-        "firstname": "Michael",
-        "lastname": "Johnson",
-        "gender": "Male",
-        "dateofbirth": "1960-02-18",
-        "dateofdeath": null,
-        "maternalfamilyid": null,
-        "paternalfamilyid": null,
-        "occupation": "Accountant"
-    },
-    {
-        "personid": 6,
-        "firstname": "Susan",
-        "lastname": "Johnson",
-        "gender": "Female",
-        "dateofbirth": "1962-07-20",
-        "dateofdeath": null,
-        "maternalfamilyid": null,
-        "paternalfamilyid": null,
-        "occupation": "Nurse"
-    },
-    {
-        "personid": 7,
-        "firstname": "Mike",
-        "lastname": "Johnson",
-        "gender": "Male",
-        "dateofbirth": "1990-07-10",
-        "dateofdeath": null,
-        "maternalfamilyid": 2,
-        "paternalfamilyid": 2,
-        "occupation": "Graphic Designer"
-    },
-    {
-        "personid": 8,
-        "firstname": "Alice",
-        "lastname": "Johnson",
-        "gender": "Female",
-        "dateofbirth": "1995-11-11",
-        "dateofdeath": null,
-        "maternalfamilyid": 2,
-        "paternalfamilyid": 2,
-        "occupation": "Marketing Specialist"
-    },
-    {
-        "personid": 9,
-        "firstname": "William",
-        "lastname": "Williams",
-        "gender": "Male",
-        "dateofbirth": "1965-08-05",
-        "dateofdeath": null,
-        "maternalfamilyid": null,
-        "paternalfamilyid": null,
-        "occupation": "Lawyer"
-    },
-    {
-        "personid": 10,
-        "firstname": "Mary",
-        "lastname": "Williams",
-        "gender": "Female",
-        "dateofbirth": "1968-11-30",
-        "dateofdeath": null,
-        "maternalfamilyid": null,
-        "paternalfamilyid": null,
-        "occupation": "HR Manager"
-    },
-    {
-        "personid": 11,
-        "firstname": "Emily",
-        "lastname": "Williams",
-        "gender": "Female",
-        "dateofbirth": "1992-09-30",
-        "dateofdeath": null,
-        "maternalfamilyid": 3,
-        "paternalfamilyid": 3,
-        "occupation": "Data Analyst"
-    },
-    {
-        "personid": 12,
-        "firstname": "Bob",
-        "lastname": "Williams",
-        "gender": "Male",
-        "dateofbirth": "1993-02-20",
-        "dateofdeath": null,
-        "maternalfamilyid": 3,
-        "paternalfamilyid": 3,
-        "occupation": "Mechanical Engineer"
-    },
-    {
-        "personid": 13,
-        "firstname": "James",
-        "lastname": "Brown",
-        "gender": "Male",
-        "dateofbirth": "1970-03-12",
-        "dateofdeath": null,
-        "maternalfamilyid": null,
-        "paternalfamilyid": null,
-        "occupation": "Architect"
-    },
-    {
-        "personid": 14,
-        "firstname": "Patricia",
-        "lastname": "Brown",
-        "gender": "Female",
-        "dateofbirth": "1972-06-08",
-        "dateofdeath": null,
-        "maternalfamilyid": null,
-        "paternalfamilyid": null,
-        "occupation": "Psychologist"
-    },
-    {
-        "personid": 15,
-        "firstname": "Sarah",
-        "lastname": "Brown",
-        "gender": "Female",
-        "dateofbirth": "1988-03-25",
-        "dateofdeath": null,
-        "maternalfamilyid": 4,
-        "paternalfamilyid": 4,
-        "occupation": "Biologist"
-    }
+  {
+    "personid": 1,
+    "firstname": "Iman Singh",
+    "lastname": "Kunwar",
+    "gender": "Male",
+    "dateofbirth": "1930-06-10",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Teacher"
+  },
+  {
+    "personid": 2,
+    "firstname": "Hira Kumari",
+    "lastname": "Kunwar",
+    "gender": "Female",
+    "dateofbirth": "1935-06-10",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Housewife"
+  },
+  {
+    "personid": 3,
+    "firstname": "Saraswati",
+    "lastname": "Kunwar",
+    "gender": "Female",
+    "dateofbirth": "1960-06-10",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Nurse"
+  },
+  {
+    "personid": 4,
+    "firstname": "Dhurba",
+    "lastname": "Kunwar",
+    "gender": "Male",
+    "dateofbirth": "1960-06-10",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Officer"
+  },
+  {
+    "personid": 5,
+    "firstname": "Mina",
+    "lastname": "Kunwar",
+    "gender": "Female",
+    "dateofbirth": "1960-06-10",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Teacher"
+  },
+  {
+    "personid": 6,
+    "firstname": "Kirtan",
+    "lastname": "Kunwar",
+    "gender": "Male",
+    "dateofbirth": "2004-05-31",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Student"
+  },
+  {
+    "personid": 7,
+    "firstname": "Senjougahara",
+    "lastname": "Hitagi",
+    "gender": "Female",
+    "dateofbirth": "1999-06-07",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Student"
+  },
+
+  {
+    "personid": 8,
+    "firstname": "Namchhuwachha",
+    "lastname": "Kirati",
+    "gender": "Male",
+    "dateofbirth": "1982-01-07",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Businessman"
+  },
+  {
+    "personid": 9,
+    "firstname": "Sharada",
+    "lastname": "Rai",
+    "gender": "Female",
+    "dateofbirth": "1984-03-10",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Housewife"
+  },
+  {
+    "personid": 10,
+    "firstname": "Sita",
+    "lastname": "Rai",
+    "gender": "Female",
+    "dateofbirth": "1935-06-10",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Housewife"
+  },
+  {
+    "personid": 11,
+    "firstname": "Kripa",
+    "lastname": "Kirati",
+    "gender": "Male",
+    "dateofbirth": "1932-08-17",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Government Officer"
+  },
+  {
+    "personid": 12,
+    "firstname": "Chawa Chha",
+    "lastname": "Kirati",
+    "gender": "Male",
+    "dateofbirth": "1984-09-20",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Teacher"
+  },
+  {
+    "personid": 13,
+    "firstname": "Asha",
+    "lastname": "Rai",
+    "gender": "Female",
+    "dateofbirth": "1986-04-02",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Housewife"
+  },
+  {
+    "personid": 14,
+    "firstname": "Tayama",
+    "lastname": "Kirati",
+    "gender": "Female",
+    "dateofbirth": "2003-01-27",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Student"
+  },
+  {
+    "personid": 15,
+    "firstname": "Henkubung",
+    "lastname": "Kirati",
+    "gender": "Male",
+    "dateofbirth": "2015-06-17",
+    "dateofdeath": null,
+    "maternalfamilyid": null,
+    "paternalfamilyid": null,
+    "occupation": "Student"
+  }
 ]

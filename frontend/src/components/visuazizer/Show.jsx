@@ -1,7 +1,11 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useUnityContext } from "react-unity-webgl";
 
-const UnityComponent = React.lazy(() => import("react-unity-webgl").then((module) => ({ default: module.Unity })));
+
+
+
+
 
 const Show = () => {
   const familyData = useSelector((state) => state.visualizer.familyData);
@@ -51,6 +55,8 @@ const Show = () => {
       sendMessage("DataLoader", "ReceiveFamilyData", familyJsonData);
     }
   }, [isUnityReady, personData, familyData, canvasSettings]);
+
+  const UnityComponent = React.lazy(() => import("react-unity-webgl").then((module) => ({ default: module.Unity })));
 
   return (
     <div className="w-screen h-screen flex pt-[8rem] px-[1rem] justify-between bg-black">
