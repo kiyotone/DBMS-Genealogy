@@ -36,7 +36,7 @@ const Signup = () => {
                 type="text"
                 placeholder="First Name"
                 className="w-4/5 p-2.5 pl-10 border border-[#A78B71] rounded-xl text-sm"
-                {...register('firstName', { required: 'First name is required' })}
+                {...register('firstname', { required: 'First name is required' })}
               />
               {errors.firstName && <p className="text-red-500 text-xs">{errors.firstName.message}</p>}
             </div>
@@ -45,7 +45,7 @@ const Signup = () => {
                 type="text"
                 placeholder="Last Name"
                 className="w-4/5 p-2.5 pl-10 border border-[#A78B71] rounded-xl text-sm"
-                {...register('lastName', { required: 'Last name is required' })}
+                {...register('lastname', { required: 'Last name is required' })}
               />
               {errors.lastName && <p className="text-red-500 text-xs">{errors.lastName.message}</p>}
             </div>
