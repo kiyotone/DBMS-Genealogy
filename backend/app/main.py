@@ -12,11 +12,12 @@ app = FastAPI()
 # Add CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins. Replace "*" with specific domains for security.
-    allow_credentials=True,  # Allow credentials (cookies, authorization headers, etc.)
-    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allow all headers
+    allow_origins=["http://localhost:5173"],  # Allow your frontend's origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
 
 create_tables()
 

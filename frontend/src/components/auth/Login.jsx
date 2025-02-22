@@ -18,12 +18,13 @@ const Login = () => {
     const response = await login(data.username, data.password);
     dispatch(loginStart());
 
-    if (response?.error) {
-      dispatch(loginFailure(response.error));  
-    } else {
-      console.log("response", response);
-      dispatch(loginSuccess(response));
+    console.log("response", response);
+
+    if (response?.status === 200) {
+      dispatch(loginSuccess(response.data));
       navigate("/home");
+    } else {
+      dispatch(loginFailure(response?.data));
     }
   };
 

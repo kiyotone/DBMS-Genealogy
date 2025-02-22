@@ -2,15 +2,17 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { logout } from "../../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 const Menu = ({ isOpen }) => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
-  console.log(user);
+  console.log("logged in user", user);
+  const dispatch = useDispatch();
 
   const logoutHandler = () => {
     localStorage.removeItem("user");
-    logout();
+    dispatch(logout());
     // Refresh the page
     window.location.reload();
   };
