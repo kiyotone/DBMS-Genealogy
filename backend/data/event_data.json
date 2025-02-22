@@ -43,5 +43,32 @@
         "description": "Sarah Brown married someone",
         "associatedpersonid": 5,
         "associatedfamilyid": 4
+    },
+    {
+        "eventid": 6,
+        "eventtype": "Marriage",
+        "date": "1984-02-14",
+        "location": "Kathmandu",
+        "description": "Ram Sharma married Sita Sharma",
+        "associatedpersonid": 16,
+        "associatedfamilyid": 5
+    },
+    {
+        "eventid": 7,
+        "eventtype": "Birth",
+        "date": "1985-04-10",
+        "location": "Pokhara",
+        "description": "Hari Sharma was born",
+        "associatedpersonid": 18,
+        "associatedfamilyid": 5
+    },
+    {
+        "eventid": 8,
+        "eventtype": "Marriage",
+        "date": "2010-05-12",
+        "location": "Lalitpur",
+        "description": "Hari Sharma married Gita Shrestha",
+        "associatedpersonid": 18,
+        "associatedfamilyid": 6
     }
 ]

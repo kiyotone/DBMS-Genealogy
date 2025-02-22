@@ -22,5 +22,29 @@
         "familyname": "Brown",
         "description": "The Brown family",
         "origincountry": "Australia"
+    },
+    {
+        "familyid": 5,
+        "familyname": "Sharma",
+        "description": "The Sharma family",
+        "origincountry": "Nepal"
+    },
+    {
+        "familyid": 6,
+        "familyname": "Shrestha",
+        "description": "The Shrestha family",
+        "origincountry": "Nepal"
+    },
+    {
+        "familyid": 7,
+        "familyname": "Khadka",
+        "description": "The Khadka family",
+        "origincountry": "Nepal"
+    },
+    {
+        "familyid": 8,
+        "familyname": "Koirala",
+        "description": "The Koirala family",
+        "origincountry": "Nepal"
     }
 ]
