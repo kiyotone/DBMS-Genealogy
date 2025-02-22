@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useUnityContext, Unity } from "react-unity-webgl";
+import React, { Suspense, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
+const UnityComponent = React.lazy(() => import("react-unity-webgl").then((module) => ({ default: module.Unity })));
+
 const Show = () => {
-  const familyData = useSelector((state) => state.visualizer.familyData); // Fixed typo: "visuazizer" → "visualizer"
+  const familyData = useSelector((state) => state.visualizer.familyData);
   const personData = useSelector((state) => state.visualizer.personData);
 
   console.log("Family Data:", personData);
@@ -51,18 +52,19 @@ const Show = () => {
     }
   }, [isUnityReady, personData, familyData, canvasSettings]);
 
-
   return (
     <div className="w-screen h-screen flex pt-[8rem] px-[1rem] justify-between bg-black">
       {/* Unity WebGL Viewer */}
       <div className="flex w-full h-full">
-        <Unity
-          unityProvider={unityProvider}
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <UnityComponent
+            unityProvider={unityProvider}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </Suspense>
       </div>
     </div>
   );
