@@ -24,16 +24,16 @@ app.add_middleware(
 def read_root():
     return {"Hello": "World"}
 
-# create_tables()
+create_tables()
 
 
-# # Include family-related routes
-# app.include_router(family_router, prefix="/family", tags=["Family"])
-# # Include person-related routes
-# app.include_router(person_router, prefix="/person", tags=["Person"])
-# # Include event-related routes
-# app.include_router(event_router, prefix="/event", tags=["Event"])
-# # Include relationship-related routes
-# app.include_router(relationship_router, prefix="/relationship", tags=["Relationship"])
-# # Include user-related routes
-# app.include_router(user_router, prefix="/auth", tags=["User"])
+# Include family-related routes
+app.include_router(family_router, prefix="/family", tags=["Family"])
+# Include person-related routes
+app.include_router(person_router, prefix="/person", tags=["Person"])
+# Include event-related routes
+app.include_router(event_router, prefix="/event", tags=["Event"])
+# Include relationship-related routes
+app.include_router(relationship_router, prefix="/relationship", tags=["Relationship"])
+# Include user-related routes
+app.include_router(user_router, prefix="/auth", tags=["User"])
