@@ -4,6 +4,7 @@ import { login } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginStart, loginFailure, loginSuccess } from "../../redux/userSlice";
+import ToastService from "../../services/toast.services";
 
 const Login = () => {
   const {
@@ -15,16 +16,25 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
-    const response = await login(data.username, data.password);
-    dispatch(loginStart());
+    try {
+      dispatch(loginStart());
+      const response = await login(data.username, data.password);
 
-    console.log("response", response);
+      console.log("response", response);
 
-    if (response?.status === 200) {
-      dispatch(loginSuccess(response.data));
-      navigate("/home");
-    } else {
-      dispatch(loginFailure(response?.data));
+      if (response?.status === 200) {
+        dispatch(loginSuccess(response.data));
+        ToastService.success("Login successful!");
+        navigate("/home");
+      } else {
+        dispatch(loginFailure(response?.data));
+        ToastService.error(
+          response?.data?.message || "Login failed. Please try again."
+        );
+      }
+    } catch (error) {
+      dispatch(loginFailure(error.message));
+      ToastService.error("An error occurred. Please try again.");
     }
   };
 

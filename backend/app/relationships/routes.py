@@ -16,7 +16,7 @@ def create_relationship(relationship: schemas.RelationshipCreate):
             relationshiptype=relationship.relationshiptype,
             status=relationship.status
         )
-        return {"message": "Relationship created successfully"}
+        return {"message": "Relationship created successfully" , "status":200}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error creating relationship: {str(e)}")
 

@@ -7,6 +7,7 @@ import { addFamilyMember } from "../../api/genealogy/family";
 import { useNavigate } from "react-router-dom";
 import { getPerson } from "../../api/genealogy/person";
 import { getFamily } from "../../api/genealogy/family"; // Import family API function
+import ToastService from '../../services/toast.services';
 
 const DataAdder = () => {
   const [selectedType, setSelectedType] = useState(null);
@@ -75,42 +76,53 @@ const DataAdder = () => {
         : null,
       date: formData.date ? new Date(formData.date).toISOString() : null,
     };
-    console.log("Form data:", formData);
-
-    // If any data inn form data is empty string then make it null
+  
+    console.log('Form data:', formData);
+  
+    // Convert empty strings to null
     for (const key in formattedData) {
-      if (formattedData[key] === "") {
+      if (formattedData[key] === '') {
         formattedData[key] = null;
       }
     }
-    console.log("Formatted Data:", formattedData);
-
+  
+    console.log('Formatted Data:', formattedData);
+  
     try {
       let response;
-
-      if (selectedType === "person") {
-        response = await addPersonMember(formattedData);
+  
+      switch (selectedType) {
+        case 'person':
+          response = await addPersonMember(formattedData);
+          break;
+        case 'event':
+          response = await addEvent(formattedData);
+          break;
+        case 'relationship':
+          response = await addRelationshipMember(formattedData);
+          break;
+        case 'family':
+          response = await addFamilyMember(formattedData);
+          break;
+        default:
+          ToastService.error('Invalid selection type.');
+          return;
       }
-      if (selectedType === "event") {
-        response = await addEvent(formattedData);
-      }
-      if (selectedType === "relationship") {
-        response = await addRelationshipMember(formattedData);
-      }
-      if (selectedType === "family") {
-        response = await addFamilyMember(formattedData);
-      }
-
+  
       if (response?.status === 200) {
-        console.log("Data submitted successfully:", response);
-        navigate("/home"); // Navigate to home page after successful submission
+        ToastService.success('Data submitted successfully!');
+        console.log('Data submitted successfully:', response);
+        navigate('/home'); // Navigate after success
       } else {
-        console.error("Failed to submit data:", response);
+        ToastService.error(response?.data?.message || 'Failed to submit data.');
+        console.error('Failed to submit data:', response);
       }
     } catch (error) {
-      console.error("Error submitting form data:", error);
+      ToastService.error('An error occurred. Please try again.');
+      console.error('Error submitting form data:', error);
     }
   };
+  
 
   const renderForm = () => {
     return (
