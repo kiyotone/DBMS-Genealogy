@@ -1,5 +1,62 @@
 [
   {
+    "relationshipid": 1,
+    "person1id": 1,
+    "person2id": 2,
+    "relationshiptype": "Spouse"
+  },
+  {
+    "relationshipid": 2,
+    "person1id": 4,
+    "person2id": 5,
+    "relationshiptype": "Spouse"
+  },
+  {
+    "relationshipid": 3,
+    "person1id": 6,
+    "person2id": 7,
+    "relationshiptype": "Spouse"
+  },
+
+  {
+    "relationshipid": 4,
+    "person1id": 1,
+    "person2id": 4,
+    "relationshiptype": "Father"
+  },
+  {
+    "relationshipid": 5,
+    "person1id": 2,
+    "person2id": 4,
+    "relationshiptype": "Mother"
+  },
+  {
+    "relationshipid": 6,
+    "person1id": 1,
+    "person2id": 3,
+    "relationshiptype": "Father"
+  },
+  {
+    "relationshipid": 7,
+    "person1id": 2,
+    "person2id": 3,
+    "relationshiptype": "Mother"
+  },
+
+  {
+    "relationshipid": 8,
+    "person1id": 4,
+    "person2id": 6,
+    "relationshiptype": "Father"
+  },
+  {
+    "relationshipid": 9,
+    "person1id": 5,
+    "person2id": 6,
+    "relationshiptype": "Mother"
+  },
+
+  {
     "relationshipid": 10,
     "person1id": 10,
     "person2id": 11,
