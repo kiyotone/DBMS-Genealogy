@@ -64,5 +64,71 @@
     "person1id": 9,
     "person2id": 14,
     "relationshiptype": "Mother"
+  },
+  {
+    "relationshipid": 21,
+    "person1id": 16,
+    "person2id": 17,
+    "relationshiptype": "Spouse"
+  },
+  {
+    "relationshipid": 22,
+    "person1id": 18,
+    "person2id": 19,
+    "relationshiptype": "Spouse"
+  },
+  {
+    "relationshipid": 23,
+    "person1id": 16,
+    "person2id": 18,
+    "relationshiptype": "Father"
+  },
+  {
+    "relationshipid": 24,
+    "person1id": 17,
+    "person2id": 18,
+    "relationshiptype": "Mother"
+  },
+  {
+    "relationshipid": 25,
+    "person1id": 18,
+    "person2id": 20,
+    "relationshiptype": "Father"
+  },
+  {
+    "relationshipid": 26,
+    "person1id": 19,
+    "person2id": 20,
+    "relationshiptype": "Mother"
+  },
+  {
+    "relationshipid": 27,
+    "person1id": 20,
+    "person2id": 21,
+    "relationshiptype": "Spouse"
+  },
+  {
+    "relationshipid": 28,
+    "person1id": 22,
+    "person2id": 23,
+    "relationshiptype": "Spouse"
+  },
+  {
+    "relationshipid": 29,
+    "person1id": 22,
+    "person2id": 24,
+    "relationshiptype": "Father"
+  },
+  {
+    "relationshipid": 30,
+    "person1id": 23,
+    "person2id": 24,
+    "relationshiptype": "Mother"
+  },
+  {
+    "relationshipid": 31,
+    "person1id": 24,
+    "person2id": 25,
+    "relationshiptype": "Spouse"
   }
 ]
