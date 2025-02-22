@@ -19,7 +19,13 @@ app.add_middleware(
 )
 
 
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
 create_tables()
+
 
 # Include family-related routes
 app.include_router(family_router, prefix="/family", tags=["Family"])
