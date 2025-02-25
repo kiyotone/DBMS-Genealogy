@@ -50,7 +50,7 @@ const Home = () => {
 
 
         });
-        setEventData(event.data);
+        setEventData(event_data);
 
       } catch (error) {
         console.error("Error fetching data:", error);
