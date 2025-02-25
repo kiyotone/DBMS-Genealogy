@@ -4,16 +4,14 @@ from ..database import get_db_connection
 def create_relationship(person1id: int, person2id: int, relationshiptype: str, status: str):
     try:
         check_query = """
-        SELECT * FROM Relationship
+        SELECT 1 FROM Relationship
         WHERE (Person1ID = %s AND Person2ID = %s) OR (Person1ID = %s AND Person2ID = %s);
         """
         with get_db_connection() as conn:
             with conn.cursor() as cursor:
                 cursor.execute(check_query, (person1id, person2id, person2id, person1id))
-                existing_relation = cursor.fetchone()
-
-        if existing_relation:
-            return {"status": 400, "message": "A relationship between these two persons already exists."}
+                if cursor.fetchone():
+                    return {"status": 400, "message": "A relationship between these two persons already exists."}
 
         insert_query = """
         INSERT INTO Relationship (Person1ID, Person2ID, RelationshipType, Status)
@@ -28,6 +26,7 @@ def create_relationship(person1id: int, person2id: int, relationshiptype: str, s
 
     except Exception as e:
         return {"status": 500, "message": str(e)}
+
 
 # Get a relationship by ID
 def get_relationship_by_id(relationship_id: int):

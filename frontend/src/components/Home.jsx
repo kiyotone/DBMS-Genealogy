@@ -28,9 +28,28 @@ const Home = () => {
 
         console.log(relationship);
 
+        relationship.data.forEach((rel) => {
+
+          // Set the person1_name and person2_name for each relationship
+          const person1 = person.data.find((p) => p.id === rel.person1_id);
+          const person2 = person.data.find((p) => p.id === rel.person2_id);
+          person1 ? rel.person1_name = person1.name : rel.person1_name = "N/A";
+          person2 ? rel.person2_name = person2.name : rel.person2_name = "N/A";
+        });
+        
         setRelationshipData(relationship.data);
         
+        eventData.data.forEach((event) => {
+          const person = personData.find((p) => p.id === event.associated_person_id);
+          event.person_name = person.name;
+          
+          const family = familyData.find((f) => f.id === event.associated_family_id);
+          family ? event.name = family.name : event.name = "N/A";
+
+        }
+        );
         setEventData(event.data);
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
