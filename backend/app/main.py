@@ -9,10 +9,14 @@ from .users.routes import router as user_router
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:5173/",
+    "https://dbms-genealogy-44dw.vercel.app/"
+
 # Add CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow your frontend's origin
+    allow_origins= origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
