@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 
 export const api = axios.create({
-    baseURL: 'https://dbms-genealogy-44dw.vercel.app/',
+    baseURL: 'https://dbms-genealogy-44dw.vercel.app',
     timeout:  5* 60 * 1000,
     headers: {
         accept: 'application/json',

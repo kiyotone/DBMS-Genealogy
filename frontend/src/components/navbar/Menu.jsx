@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { logout } from "../../redux/userSlice";
 import { useDispatch } from "react-redux";
+import ToastService from "../../services/toast.services";
+
+
 
 const Menu = ({ isOpen }) => {
   const navigate = useNavigate();
@@ -11,10 +14,11 @@ const Menu = ({ isOpen }) => {
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
-    localStorage.removeItem("user");
     dispatch(logout());
-    // Refresh the page
-    window.location.reload();
+    ToastService.success("Logout successful!");
+    navigate("/login");
+
+
   };
 
   return (

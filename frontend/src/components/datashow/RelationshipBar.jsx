@@ -1,7 +1,6 @@
 import React from "react";
 
 const RelationshipBar = ({ data, index }) => {
-  console.log(data);
   if (index === -1) {
     return (
       <div className="grid grid-cols-3 text-black p-4 bg-gray-400 font-bold border-b border-gray-600">
