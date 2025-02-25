@@ -12,7 +12,7 @@ app = FastAPI()
 origins = [
     "http://localhost:5173/",
     "https://dbms-genealogy-44dw.vercel.app/"
-
+]
 # Add CORS Middleware
 app.add_middleware(
     CORSMiddleware,
