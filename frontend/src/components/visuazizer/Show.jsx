@@ -62,6 +62,15 @@ const Show = () => {
     <div className="w-screen h-screen flex pt-[8rem] px-[1rem] justify-between bg-black">
       {/* Unity WebGL Viewer */}
       <div className="flex w-full h-full">
+        <div className="w-full h-32 left-[0%] absolute bg-transparent z-10 text-black items-center flex flex-col">
+            <div className="flex justify-between  items-center px-4 text-white font-semibold text-5xl"> Hierarchy Visualizer </div>
+            <div className="flex justify-between w-full mr-20 flex-col px-4 text-white items-end text-sm  space-y-5"> 
+              <div> Drag Move</div>
+              <div> Scroll To Zoom</div>
+              <div> Click on Names For More Information</div>
+            </div>
+            
+        </div>
         <Suspense fallback={<div>Loading...</div>}>
           <UnityComponent
             unityProvider={unityProvider}

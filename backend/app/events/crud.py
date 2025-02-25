@@ -45,8 +45,6 @@ def get_event_by_id(event_id: int):
         
         # Convert tuple result to dictionary
         if result:
-            person_name = get_person_name_by_id(result[5])
-            family_name = get_family_name_by_id(result[6])
             event_dict = {
                 "id": result[0],  # EventID
                 "type": result[1],  # EventType
@@ -55,8 +53,6 @@ def get_event_by_id(event_id: int):
                 "description": result[4],  # Description
                 "associated_person_id": result[5],  # AssociatedPersonID
                 "associated_family_id": result[6],  # AssociatedFamilyID
-                "associated_person_name": person_name,
-                "associated_family_name": family_name
                 }
             return {"status": 200, "data": event_dict}  # Success response
         else:
@@ -82,8 +78,7 @@ def get_all_events():
         events = []
         for row in result:
             
-            person_name = get_person_name_by_id(row[5])
-            family_name = get_family_name_by_id(row[6])
+
             event_dict = {
                 "id": row[0],  # EventID
                 "type": row[1],  # EventType
@@ -92,8 +87,6 @@ def get_all_events():
                 "description": row[4],  # Description
                 "associated_person_id": row[5],  # AssociatedPersonID
                 "associated_family_id": row[6],  # AssociatedFamilyID
-                "associated_person_name": person_name,
-                "associated_family_name": family_name
                 
             }
             events.append(event_dict)
@@ -103,43 +96,3 @@ def get_all_events():
     except Exception as e:
         # Return error status with the error message
         return {"status": 500, "message": str(e)}
-
-
-def get_person_name_by_id(person_id: int):
-    try:
-        query = """
-        SELECT FirstName, LastName FROM Person WHERE PersonID = %s;
-        """
-        
-        with get_db_connection() as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(query, (person_id,))
-                result = cursor.fetchone()
-        
-        if result:
-            return f"{result[0]} {result[1]}"
-        else:
-            return "Unknown Person"
-    
-    except Exception as e:
-        return "Unknown Person"
-
-def get_family_name_by_id(family_id: int):
-    try:
-        query = """
-        SELECT FamilyName FROM Family WHERE FamilyID = %s;
-        """
-        
-        with get_db_connection() as conn:
-            with conn.cursor() as cursor:
-                cursor.execute(query, (family_id,))
-                result = cursor.fetchone()
-        
-        if result:
-            return result[0]
-        else:
-            return "Unknown Family"
-    
-    except Exception as e:
-        return "Unknown Family"
-    

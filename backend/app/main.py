@@ -48,7 +48,7 @@ async def log_requests(request: Request, call_next):
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "To Our Family Tree API!"}
 
 
 

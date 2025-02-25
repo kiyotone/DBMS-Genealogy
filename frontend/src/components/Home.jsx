@@ -21,19 +21,44 @@ const Home = () => {
         const relationship = await getRelationship();
         const person = await getPerson();
         const event = await getEvent();
-        
-        console.log("Family Data:", family.data);
-        console.log("Relationship Data:", relationship.data);
-        console.log("Person Data:", person.data);
-        console.log("Event Data:", event.data);
 
         setPersonData(person.data);
-        
+
         setFamilyData(family.data);
 
-        setRelationshipData(relationship.data);
-        
-        setEventData(event.data);
+        const rel_data = relationship.data;
+        rel_data.forEach((rel) => {
+          const person1 = person.data.find((p) => p.id === rel.person1_id);
+          const person2 = person.data.find((p) => p.id === rel.person2_id);
+          person1
+            ? (rel.person1_name = person1.firstname + " " + person1.lastname)
+            : (rel.person1_name = "Unknown");
+          person2
+            ? (rel.person2_name = person2.firstname + " " + person2.lastname)
+            : (rel.person2_name = "Unknown");
+        });
+
+        setRelationshipData(rel_data);
+
+        const event_data = event.data;
+        console.log(event_data);
+        event_data.forEach((event) => {
+          const evenPerson = person.data.find(
+            (p) => p.id === event.associated_person_id
+          );
+          evenPerson
+            ? (event.associated_person_name =
+                evenPerson.firstname + " " + evenPerson.lastname)
+            : (event.associated_person_name = "Unknown");
+
+          const evenFamily = family.data.find(
+            (f) => f.id === event.associated_family_id
+          );
+          evenFamily
+            ? (event.associated_family_name = evenFamily.name)
+            : (event.associated_family_name = "Unknown");
+        });
+        setEventData(event_data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -41,7 +66,6 @@ const Home = () => {
 
     fetchData();
   }, []);
-
 
   return (
     <div className="mt-24 flex flex-col items-center bg-[#F9F1E7] w-screen p-10">
@@ -54,14 +78,16 @@ const Home = () => {
                 Explore and Manage Data Lineage
               </div>
               <p className="mt-5 text-xl text-[#7C5E4C] rounded-lg">
-                Trace the journey of your data with our interactive genealogy visualizer, 
-                exploring how data evolves, transforms, and connects across systems to ensure 
-                accuracy and integrity. Gain deeper insights into data dependencies, uncover 
-                potential bottlenecks, and make informed decisions based on a clear lineage structure. 
-                Easily contribute new data to the system while maintaining structured lineage tracking, 
-                keeping records organized, transparent, and up-to-date. Ensure seamless integration with 
-                existing datasets and maintain a comprehensive history of changes for auditability and 
-                better data governance.
+                Trace the journey of your data with our interactive genealogy
+                visualizer, exploring how data evolves, transforms, and connects
+                across systems to ensure accuracy and integrity. Gain deeper
+                insights into data dependencies, uncover potential bottlenecks,
+                and make informed decisions based on a clear lineage structure.
+                Easily contribute new data to the system while maintaining
+                structured lineage tracking, keeping records organized,
+                transparent, and up-to-date. Ensure seamless integration with
+                existing datasets and maintain a comprehensive history of
+                changes for auditability and better data governance.
               </p>
             </div>
           </div>
@@ -91,9 +117,8 @@ const Home = () => {
           eventData={eventData}
         />
 
-
         {/* Data Containers */}
-          <div className="grid grid-cols-2 col-span-2 gap-8 mt-8">
+        <div className="grid grid-cols-2 col-span-2 gap-8 mt-8">
           <DataContainer data={personData} name="Person" />
           <DataContainer data={relationshipData} name="Relationship" />
           <DataContainer data={eventData} name="Event" />
@@ -114,7 +139,6 @@ const Home = () => {
             </button>
           </div>
         </div>
-
       </div>
     </div>
   );
