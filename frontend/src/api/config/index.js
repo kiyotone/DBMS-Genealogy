@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 
 export const api = axios.create({
-    baseURL: 'http://127.0.0.1:8000/',
+    baseURL: 'http://127.0.0.1:8000',
     timeout:  5* 60 * 1000,
     headers: {
         accept: 'application/json',

@@ -3,7 +3,6 @@ import { api } from "../config";
 export const getEvent = async () => {
   try {
     const response = await api.get("/event/"); // Make sure the endpoint is correct
-    console.log("Response from getEvent:", response);
     return response.data;
     
   } catch (error) {

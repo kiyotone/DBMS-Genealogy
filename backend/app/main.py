@@ -13,7 +13,7 @@ app = FastAPI()
 # Add CORS Middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://dbms-genealogy-44dw.vercel.app"],  # Add both local and deployed frontend
+    allow_origins=["*"],  # Add both local and deployed frontend
     allow_credentials=True,  # This is key for cookies/auth headers
     allow_methods=["*"],
     allow_headers=["*"],
