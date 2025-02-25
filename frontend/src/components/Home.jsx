@@ -26,28 +26,30 @@ const Home = () => {
         
         setFamilyData(family.data);
 
-        console.log(relationship);
+        console.log(event.data);
 
-        relationship.data.forEach((rel) => {
-
-          // Set the person1_name and person2_name for each relationship
-          const person1 = person.data.find((p) => p.id === rel.person1_id);
-          const person2 = person.data.find((p) => p.id === rel.person2_id);
-          person1 ? rel.person1_name = person1.name : rel.person1_name = "N/A";
-          person2 ? rel.person2_name = person2.name : rel.person2_name = "N/A";
+        rel_data = relationship.data;
+        rel_data.forEach((rel) => {
+          const person1 = personData.find((p) => p.id === rel.person1_id);
+          const person2 = personData.find((p) => p.id === rel.person2_id);
+          person1 ? (rel.person1_name = person1.firstname + " " + person1.lastname) : (rel.person1_name = "Unknown");
+          person2 ? (rel.person2_name = person2.firstname + " " + person2.lastname) : (rel.person2_name = "Unknown");
         });
         
-        setRelationshipData(relationship.data);
+        setRelationshipData(rel_data);
         
-        eventData.data.forEach((event) => {
-          const person = personData.find((p) => p.id === event.associated_person_id);
-          event.person_name = person.name;
-          
-          const family = familyData.find((f) => f.id === event.associated_family_id);
-          family ? event.name = family.name : event.name = "N/A";
+        const event_data = event.data;
 
-        }
-        );
+        event_data.forEach((event) => {
+          const person = personData.find((p) => p.id === event.person_id);          
+          person ? (event.associated_person_name = person.firstname + " " + person.lastname) : (event.associated_person_name = "Unknown");
+
+          const family = familyData.find((f) => f.id === event.family_id);
+          family ? (event.associated_family_name = family.name) : (event.associated_family_name = "Unknown");
+
+
+
+        });
         setEventData(event.data);
 
       } catch (error) {
