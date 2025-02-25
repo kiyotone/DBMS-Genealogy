@@ -21,6 +21,8 @@ const Home = () => {
         const relationship = await getRelationship();
         const person = await getPerson();
         const event = await getEvent();
+
+        console.log(person.data);
         
         setPersonData(person.data);
         
@@ -30,8 +32,8 @@ const Home = () => {
 
         const rel_data = relationship.data;
         rel_data.forEach((rel) => {
-          const person1 = personData.find((p) => p.id === rel.person1_id);
-          const person2 = personData.find((p) => p.id === rel.person2_id);
+          const person1 = person.data.find((p) => p.id === rel.person1_id);
+          const person2 = person.data.find((p) => p.id === rel.person2_id);
           person1 ? (rel.person1_name = person1.firstname + " " + person1.lastname) : (rel.person1_name = "Unknown");
           person2 ? (rel.person2_name = person2.firstname + " " + person2.lastname) : (rel.person2_name = "Unknown");
         });
@@ -41,10 +43,10 @@ const Home = () => {
         const event_data = event.data;
 
         event_data.forEach((event) => {
-          const person = personData.find((p) => p.id === event.person_id);          
+          const person = person.data.find((p) => p.id === event.associated_person_id);          
           person ? (event.associated_person_name = person.firstname + " " + person.lastname) : (event.associated_person_name = "Unknown");
 
-          const family = familyData.find((f) => f.id === event.family_id);
+          const family = person.data.find((f) => f.id === event.associated_family_id);
           family ? (event.associated_family_name = family.name) : (event.associated_family_name = "Unknown");
 
 
