@@ -13,8 +13,7 @@ const Menu = ({ isOpen }) => {
   const logoutHandler = () => {
     localStorage.removeItem("user");
     dispatch(logout());
-    // Refresh the page
-    window.location.reload();
+    navigate("/login");
   };
 
   return (
