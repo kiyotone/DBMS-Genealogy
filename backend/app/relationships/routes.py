@@ -7,18 +7,32 @@ router = APIRouter()
 @router.post("/")
 def create_relationship(relationship: schemas.RelationshipCreate):
     """
-    Create a new relationship record.
+    Create a new relationship record, ensuring no duplicate relationships exist.
     """
     try:
+        # Check if a relationship already exists between these two people
+        existing_relationship = crud.get_relationship_by_persons(
+            relationship.person1id, relationship.person2id
+        )
+        
+        if existing_relationship:
+            raise HTTPException(
+                status_code=400,
+                detail="A relationship between these two people already exists"
+            )
+
+        # Create the new relationship
         crud.create_relationship(
             person1id=relationship.person1id,
             person2id=relationship.person2id,
             relationshiptype=relationship.relationshiptype,
             status=relationship.status
         )
-        return {"message": "Relationship created successfully" , "status":200}
+        return {"message": "Relationship created successfully", "status": 200}
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error creating relationship: {str(e)}")
+
 
 
 @router.get("/{relationship_id}")

@@ -116,3 +116,21 @@ def get_person_name_by_id(person_id: int):
 
     except Exception as e:
         return "Unknown"  # Return "Unknown" if there's an
+    
+
+def get_relationship_by_persons(person1id,person2id):
+    try :
+        query = """
+        SELECT * FROM Relationship WHERE (Person1ID = %s AND Person2ID = %s) OR (Person1ID = %s AND Person2ID = %s);
+        """
+        with get_db_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute(query, (person1id, person2id, person2id, person1id))
+                result = cursor.fetchone()
+        if result:
+            return result
+        else:
+            return None
+    except Exception as e:        
+        return None
+    
