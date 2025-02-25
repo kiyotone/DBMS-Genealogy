@@ -29,7 +29,6 @@ def get_event(event_id: int):
     Retrieve an event record by ID.
     """
     event = crud.get_event_by_id(event_id)
-    
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")
     return event
