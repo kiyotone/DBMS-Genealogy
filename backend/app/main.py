@@ -22,7 +22,7 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "To Our Family Tree API!"}
 
 create_tables()
 
