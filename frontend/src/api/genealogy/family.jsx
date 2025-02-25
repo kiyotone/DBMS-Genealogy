@@ -12,6 +12,7 @@ export const getFamily = async () => {
 export const getFamilyMember = async (id) => {
   try {
     const response = await api.get(`/family/${id}`); // Make sure the endpoint is correct
+    
     return response.data;
   } catch (error) {
     console.error("Error loading data:", error);

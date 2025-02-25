@@ -22,11 +22,14 @@ const Home = () => {
         const person = await getPerson();
         const event = await getEvent();
         
+        console.log("Family Data:", family.data);
+        console.log("Relationship Data:", relationship.data);
+        console.log("Person Data:", person.data);
+        console.log("Event Data:", event.data);
+
         setPersonData(person.data);
         
         setFamilyData(family.data);
-
-        console.log(relationship);
 
         setRelationshipData(relationship.data);
         

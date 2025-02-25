@@ -32,7 +32,7 @@ def get_event(event_id: int):
     
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")
-    return {"data" : event ,  "status": 200}
+    return event
 
 
 @router.get("/")
@@ -42,6 +42,6 @@ def get_all_events():
     """
     try:
         events = crud.get_all_events()
-        return {"data" : events ,  "status": 200}
+        return events
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error retrieving events: {str(e)}")

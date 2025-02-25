@@ -39,6 +39,6 @@ def get_all_relationships():
     """
     try:
         relationships = crud.get_all_relationships()
-        return {"data": relationships, "status": 200}
+        return relationships
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error retrieving relationships: {str(e)}")
