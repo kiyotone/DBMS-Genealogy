@@ -36,9 +36,6 @@
           { "key": "Content-Type", "value": "application/wasm" }
         ]
       }
-    ],
-    "routes": [
-      { "src": "/[^.]+", "dest": "/", "status": 200 }
     ]
   }
   
