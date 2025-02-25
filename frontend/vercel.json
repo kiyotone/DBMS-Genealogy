@@ -25,10 +25,11 @@
       "headers": [{ "key": "Content-Type", "value": "application/wasm" }]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/(*)",
-      "destination": "/"
-    }
-  ]
+ "rewrites": [
+  {
+    "source": "/:path*",
+    "destination": "/"
+  }
+]
+
 }
