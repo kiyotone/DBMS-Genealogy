@@ -29,7 +29,7 @@ def get_relationship(relationship_id: int):
     relationship = crud.get_relationship_by_id(relationship_id)
     if not relationship:
         raise HTTPException(status_code=404, detail="Relationship not found")
-    return relationship
+    return {"data": relationship, "status": 200}
 
 
 @router.get("/")
@@ -39,6 +39,6 @@ def get_all_relationships():
     """
     try:
         relationships = crud.get_all_relationships()
-        return relationships
+        return {"data": relationships, "status": 200}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error retrieving relationships: {str(e)}")
