@@ -28,7 +28,7 @@ const Home = () => {
 
         console.log(event.data);
 
-        rel_data = relationship.data;
+        const rel_data = relationship.data;
         rel_data.forEach((rel) => {
           const person1 = personData.find((p) => p.id === rel.person1_id);
           const person2 = personData.find((p) => p.id === rel.person2_id);
